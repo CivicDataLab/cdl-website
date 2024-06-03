@@ -7,3 +7,11 @@
 		text-wrap: balance;
 	}
 }
+
+:root {
+	--light-blue: #e4f3ff;
+	--light-green: #ccffce;
+	--dark-grey: #393837;
+	--dark-blue: #22699d;
+	--highlight: #ee5940;
+}

@@ -73,7 +73,7 @@ const Item = ({
 		<li>
 			<a
 				href={href}
-				className={cn('block px-4 py-2', active && 'bg-[#E4F3FF]')}
+				className={cn('block px-4 py-2', active && 'bg-light-blue')}
 			>
 				{children}
 			</a>

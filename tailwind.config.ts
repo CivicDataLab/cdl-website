@@ -7,7 +7,15 @@ const config: Config = {
 		'./app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				'light-blue': 'var(--light-blue)',
+				'light-green': 'var(--light-green)',
+				'light-grey': 'var(--light-grey)',
+				'dark-blue': 'var(--dark-blue)',
+				highlight: 'var(--highlight)',
+			},
+		},
 		container: {
 			center: true,
 			padding: '16px',
