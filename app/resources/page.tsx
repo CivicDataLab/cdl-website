@@ -116,7 +116,7 @@ const Resources = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {selected.res?.map((details, idx) => (
               <div key={idx}>
-                <Image src={details.img} width={300} height={300} className="object-contain" alt={details.name} />
+                <Image src={details.img} width={400} height={300} className="object-contain" alt={details.name} />
                 <p className="text-xl">{details.name}</p>
               </div>
             ))}
