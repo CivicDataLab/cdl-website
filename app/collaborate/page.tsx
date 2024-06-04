@@ -5,7 +5,7 @@ const collaborate = () => {
   return (
     <div>
       <section>
-        <div className="h-100 bg-light-green w-full">
+        <div className="bg-light-green w-full">
           <div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-40 gap-10 lg:gap-32 flex-grow">
             <Image src="/collab-sec1.png" width={350} height={250} className="object-contain" alt="civicdatalab logo" />
             <div className=" lg:max-w-md">
@@ -19,7 +19,7 @@ const collaborate = () => {
         </div>
       </section>
       <section>
-        <div className="h-100  w-full">
+        <div className="w-full">
           <div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-40 gap-10 lg:gap-32 flex-grow">
             <div className="lg:max-w-md">
               <h2 className="text-2xl font-bold mb-3"> Careers</h2>
@@ -31,7 +31,7 @@ const collaborate = () => {
         </div>
       </section>
       <section>
-        <div className="h-100 bg-light-green w-full">
+        <div className="bg-light-green w-full">
           <div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-40 gap-10 lg:gap-32 flex-grow">
             <Image src="/collab-sec3.png" width={350} height={200} className="object-contain" alt="civicdatalab logo" />
             <div className=" lg:max-w-md">
