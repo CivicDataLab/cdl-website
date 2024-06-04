@@ -46,9 +46,7 @@ export default function Home() {
 			{/* Sectors */}
 
 			<section className="container py-16">
-				<h2 className="font-heading font-extrabold text-2xl">
-					What CDL Offers
-				</h2>
+				<Heading>What CDL Offers</Heading>
 				<p className="mt-3">
 					We make data accessible to help strengthen evidence based decision
 					making and increase citizen engagement for sustainable impact on
@@ -73,7 +71,7 @@ export default function Home() {
 			{/* Data */}
 			<section className="py-16 bg-dark-grey text-white">
 				<div className="container">
-					<h2 className="font-heading font-extrabold text-2xl">Data at CDL</h2>
+					<Heading>Data at CDL</Heading>
 
 					<div className="flex gap-12 mt-8 items-center justify-center">
 						<div className="min-w-[600px] hidden md:block">
@@ -99,6 +97,29 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			{/* About */}
+			<section className="bg-light-blue">
+				<div className="container py-16">
+					<Heading>About CDL</Heading>
+					<p className="mt-3">
+						CivicDataLab, set-up in 2018, working towards building OpenData
+						networks for evidence based decision making with increased community
+						engagement to create resilient/ sustainable solutions/
+						interventions.
+					</p>
+
+					<a href="#" className="my-8 inline-block font-medium text-lg">
+						Know More &gt;&gt;
+					</a>
+
+					<div className="bg-blue-400 rounded-sm w-full h-96"></div>
+				</div>
+			</section>
 		</main>
 	)
 }
+
+const Heading = ({ children }: { children: React.ReactNode }) => (
+	<h2 className="font-heading font-extrabold text-2xl">{children}</h2>
+)
