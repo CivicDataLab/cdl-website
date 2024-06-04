@@ -15,3 +15,7 @@
 	--dark-blue: #22699d;
 	--highlight: #ee5940;
 }
+
+body {
+	font-family: var(--font-mukta);
+}

@@ -17,7 +17,7 @@ export default function Home() {
 						className="object-contain"
 					/>
 
-					<div className="flex flex-col gap-4">
+					<div className="flex flex-col gap-4 font-heading">
 						<h1 className="text-3xl text-center font-medium">
 							We work to strengthen the course of <br />
 							<span className="font-bold"> Civic Engagement </span>

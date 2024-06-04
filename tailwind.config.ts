@@ -15,6 +15,10 @@ const config: Config = {
 				'dark-blue': 'var(--dark-blue)',
 				highlight: 'var(--highlight)',
 			},
+			fontFamily: {
+				body: ['var(--font-mukta)'],
+				heading: ['var(--font-montserrat)'],
+			},
 		},
 		container: {
 			center: true,
