@@ -1,5 +1,6 @@
 'use client'
 
+import { Globe } from '@/components/Globe'
 import Image from 'next/image'
 import { ReactTyped } from 'react-typed'
 
@@ -74,11 +75,15 @@ export default function Home() {
 				<div className="container">
 					<h2 className="font-heading font-extrabold text-2xl">Data at CDL</h2>
 
-					<div className="flex gap-12 mt-8 items-center">
-						<div className="bg-red-600 grow w-full h-96"></div>
-						<div className="grow">
+					<div className="flex gap-12 mt-8 items-center justify-center">
+						<div className="min-w-[600px] hidden md:block">
+							<Globe />
+						</div>
+						<div className="">
 							<div className="font-heading">
-								<span className="text-4xl font-extrabold">36,860</span>
+								<span className="text-4xl font-extrabold text-light-blue">
+									36,860
+								</span>
 								<p className="mt-2 text-3xl font-bold">
 									Public Contracts Opened
 								</p>

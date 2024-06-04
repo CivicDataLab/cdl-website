@@ -10,10 +10,10 @@
 
 :root {
 	--light-blue: #c7dff3;
-	--light-green: #ccffce;
+	--light-green: rgb(204, 255, 206);
 	--dark-grey: #393837;
 	--dark-blue: #22699d;
-	--highlight: #ee5940;
+	--highlight: rgb(238, 89, 64);
 }
 
 body {
