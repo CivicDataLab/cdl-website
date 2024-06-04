@@ -5,7 +5,7 @@ import { ReactTyped } from 'react-typed'
 
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between">
+		<main>
 			{/* Header */}
 			<section className="bg-light-blue py-4 w-full">
 				<div className="container flex gap-6 items-center justify-center">
@@ -44,8 +44,29 @@ export default function Home() {
 
 			{/* Sectors */}
 
-			<section className="container">
-				<h2>What CDL Offers</h2>
+			<section className="container py-16">
+				<h2 className="font-heading font-extrabold text-2xl">
+					What CDL Offers
+				</h2>
+				<p className="mt-3">
+					We make data accessible to help strengthen evidence based decision
+					making and increase citizen engagement for sustainable impact on
+					ground. By harnessing the potential of OpenData movement, we build
+					institutional data capacity, develop and co-create data platforms and
+					enable data-driven interventions.
+				</p>
+
+				<div className="flex gap-4 flex-wrap uppercase mt-8 text-2xl font-medium justify-evenly">
+					<span>Capacity building</span>
+					<span>Platforms</span>
+					<span>Strategy</span>
+					<span>Data Science</span>
+					<span>OpenData</span>
+				</div>
+
+				<a href="#" className="mt-8 inline-block font-medium text-lg">
+					Know More &gt;&gt;
+				</a>
 			</section>
 		</main>
 	)
