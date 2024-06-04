@@ -6,8 +6,8 @@ const collaborate = () => {
     <div>
       <section>
         <div className="bg-light-green w-full">
-          <div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-16 gap-10 lg:gap-26 flex-grow">
-            <Image src="/collab-sec1.png" width={520} height={300} className="object-contain" alt="civicdatalab logo" />
+          <div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-10 gap-10 lg:gap-26 flex-grow">
+            <Image src="/collab-sec1.png" width={420} height={300} className="object-contain" alt="civicdatalab logo" />
             <div className=" lg:max-w-md">
               <h2 className=" font-heading text-2xl font-bold mb-3">Work with us!</h2>
               <p className="text-xl ">
@@ -37,7 +37,7 @@ const collaborate = () => {
       </section>
       <section>
         <div className="bg-light-green w-full">
-          <div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-16 gap-10 lg:gap-26 flex-grow">
+          <div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-10 gap-10 lg:gap-26 flex-grow">
             <div className=" lg:max-w-md">
               <h2 className="font-heading text-2xl font-bold mb-3">Collaborate</h2>
               <p className="text-xl mb-3">Join us in co-creating service, product and research solutions to make meaningful impact.</p>
