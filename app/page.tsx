@@ -120,7 +120,16 @@ export default function Home() {
 						Know More &gt;&gt;
 					</a>
 
-					<div className="bg-blue-400 rounded-sm w-full h-96"></div>
+					<iframe
+						width="100%"
+						height="520"
+						src="https://www.youtube-nocookie.com/embed/8JoctVLMEyc?si=k2SFIEWZtJ_f_5kz"
+						title="YouTube video player"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerPolicy="strict-origin-when-cross-origin"
+						allowFullScreen
+					></iframe>
+					{/* <div className="bg-blue-400 rounded-sm w-full h-96"></div> */}
 				</div>
 			</section>
 
