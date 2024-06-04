@@ -21,7 +21,7 @@ export default function Home() {
 						src="/seed.png"
 						alt=""
 						width={220}
-						height={500}
+						height={466}
 						className="object-contain"
 					/>
 

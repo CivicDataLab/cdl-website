@@ -46,7 +46,7 @@ export const Navbar = () => {
 				<Image
 					src="/logo.png"
 					width={70}
-					height={90}
+					height={76}
 					className="object-contain"
 					alt="civicdatalab logo"
 				/>
