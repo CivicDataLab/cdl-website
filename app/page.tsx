@@ -68,6 +68,32 @@ export default function Home() {
 					Know More &gt;&gt;
 				</a>
 			</section>
+
+			{/* Data */}
+			<section className="py-16 bg-dark-grey text-white">
+				<div className="container">
+					<h2 className="font-heading font-extrabold text-2xl">Data at CDL</h2>
+
+					<div className="flex gap-12 mt-8 items-center">
+						<div className="bg-red-600 grow w-full h-96"></div>
+						<div className="grow">
+							<div className="font-heading">
+								<span className="text-4xl font-extrabold">36,860</span>
+								<p className="mt-2 text-3xl font-bold">
+									Public Contracts Opened
+								</p>
+							</div>
+
+							<p className="mt-6">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+								ea minima deserunt vero. Quae a alias voluptates itaque delectus
+								sint quam. Laborum fugit temporibus dolores! Accusamus quis
+								neque provident odio!
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 	)
 }

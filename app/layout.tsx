@@ -4,14 +4,14 @@ import type { Metadata } from 'next'
 import { Mukta, Montserrat } from 'next/font/google'
 import './globals.css'
 
-export const mukta = Mukta({
+const mukta = Mukta({
 	weight: ['400', '500'],
 	subsets: ['latin'],
 	display: 'swap',
 	variable: '--font-mukta',
 })
 
-export const montserrat = Montserrat({
+const montserrat = Montserrat({
 	subsets: ['latin'],
 	display: 'swap',
 	variable: '--font-montserrat',
