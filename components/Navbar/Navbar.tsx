@@ -35,7 +35,7 @@ export const Navbar = () => {
 	const pathname = usePathname()
 
 	return (
-		<nav className="flex items-center justify-end pt-1 px-6 container">
+		<nav className="flex items-center justify-end pt-1 px-6">
 			<div className="bg-white rounded-full p-6 absolute -top-3 -left-2">
 				<Image
 					src="/logo.png"

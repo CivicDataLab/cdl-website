@@ -1,10 +1,21 @@
 import { Footer } from '@/components/Footer/Footer'
 import { Navbar } from '@/components/Navbar/Navbar'
 import type { Metadata } from 'next'
-import { Mukta } from 'next/font/google'
+import { Mukta, Montserrat } from 'next/font/google'
 import './globals.css'
 
-const mukta = Mukta({ weight: '400', subsets: ['latin'] })
+export const mukta = Mukta({
+	weight: ['400', '500'],
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-mukta',
+})
+
+export const montserrat = Montserrat({
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-montserrat',
+})
 
 export const metadata: Metadata = {
 	title: 'CivicDataLab',
@@ -19,7 +30,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={mukta.className}>
+			<body className={`${mukta.variable} ${montserrat.variable}`}>
 				<Navbar />
 				{children}
 				<Footer />
