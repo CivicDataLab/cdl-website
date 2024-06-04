@@ -108,8 +108,8 @@ const Resources = () => {
             </button>
           ))}
         </div>
-        <div className="flex justify-center flex-wrap mt-8 gap-16 px-5">
-          <div className=" w-full 2xl:w-1/6 ">
+        <div className="flex justify-center flex-wrap lg:flex-nowrap mt-8 gap-16 px-5">
+          <div className=" w-full lg:w-2/6 2xl:w-1/6 ">
             <h2 className="font-heading text-2xl font-bold mb-3">{selected.name}</h2>
             <p className="text-xl">{selected.desc}</p>
           </div>
