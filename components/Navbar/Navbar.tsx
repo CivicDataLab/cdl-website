@@ -8,26 +8,32 @@ const links = [
 	{
 		name: 'Home',
 		href: '/',
+		color: 'bg-light-blue',
 	},
 	{
 		name: 'Work',
 		href: '/work',
+		color: 'bg-light-green',
 	},
 	{
 		name: 'About',
 		href: '/about',
+		color: 'bg-light-blue',
 	},
 	{
 		name: 'Event',
 		href: '/event',
+		color: 'bg-light-green',
 	},
 	{
 		name: 'Resources',
 		href: '/resources',
+		color: 'bg-light-blue',
 	},
 	{
 		name: 'Collaborate',
 		href: '/collaborate',
+		color: 'bg-light-green',
 	},
 ]
 
@@ -50,6 +56,7 @@ export const Navbar = () => {
 					<Item
 						key={link.name}
 						href={link.href}
+						color={link.color}
 						active={pathname === link.href}
 					>
 						{link.name}
@@ -63,19 +70,21 @@ export const Navbar = () => {
 const Item = ({
 	children,
 	href,
+	color,
 	active = false,
 }: {
 	children: React.ReactNode
 	href: string
 	active?: boolean
+	color: string
 }) => {
 	return (
 		<li>
 			<a
 				href={href}
 				className={cn(
-					'block px-4 py-2 font-heading font-semibold',
-					active && 'bg-light-blue'
+					'block px-4 py-2 font-heading font-semibold rounded-t-sm',
+					active && color
 				)}
 			>
 				{children}
