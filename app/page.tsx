@@ -116,6 +116,103 @@ export default function Home() {
 					<div className="bg-blue-400 rounded-sm w-full h-96"></div>
 				</div>
 			</section>
+
+			{/* Focus Area */}
+			<section className="container py-16">
+				<Heading>Focus Areas</Heading>
+
+				<div className="grid gap-10 grid-cols-[repeat(auto-fit,minmax(min(310px,100%),1fr))] mt-8">
+					<div>
+						<h3 className="uppercase font-heading font-bold text-xl">
+							Digital Public Goods
+						</h3>
+						<p className="mt-1">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
+							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
+							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
+							Repudiandae, sed animi.
+						</p>
+						<a href="#" className="mt-1 inline-block font-medium text-lg">
+							Know More &gt;&gt;
+						</a>
+					</div>
+
+					<div>
+						<h3 className="uppercase font-heading font-bold text-xl">
+							Climate Action
+						</h3>
+						<p className="mt-1">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
+							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
+							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
+							Repudiandae, sed animi.
+						</p>
+						<a href="#" className="mt-1 inline-block font-medium text-lg">
+							Know More &gt;&gt;
+						</a>
+					</div>
+
+					<div>
+						<h3 className="uppercase font-heading font-bold text-xl">
+							Public Finance
+						</h3>
+						<p className="mt-1">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
+							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
+							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
+							Repudiandae, sed animi.
+						</p>
+						<a href="#" className="mt-1 inline-block font-medium text-lg">
+							Know More &gt;&gt;
+						</a>
+					</div>
+
+					<div>
+						<h3 className="uppercase font-heading font-bold text-xl">
+							Open Contracting India
+						</h3>
+						<p className="mt-1">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
+							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
+							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
+							Repudiandae, sed animi.
+						</p>
+						<a href="#" className="mt-1 inline-block font-medium text-lg">
+							Know More &gt;&gt;
+						</a>
+					</div>
+
+					<div>
+						<h3 className="uppercase font-heading font-bold text-xl">
+							Urban Development
+						</h3>
+						<p className="mt-1">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
+							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
+							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
+							Repudiandae, sed animi.
+						</p>
+						<a href="#" className="mt-1 inline-block font-medium text-lg">
+							Know More &gt;&gt;
+						</a>
+					</div>
+
+					<div>
+						<h3 className="uppercase font-heading font-bold text-xl">
+							Law & Justice
+						</h3>
+						<p className="mt-1">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
+							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
+							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
+							Repudiandae, sed animi.
+						</p>
+						<a href="#" className="mt-1 inline-block font-medium text-lg">
+							Know More &gt;&gt;
+						</a>
+					</div>
+				</div>
+			</section>
 		</main>
 	)
 }
