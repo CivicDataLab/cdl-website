@@ -16,6 +16,7 @@ export default async function Home() {
 	const strapiData: Homepage = await getStrapiData(`/homepage`)
 
 	const data = strapiData.data.attributes
+	console.log(data)
 
 	return (
 		<main>
@@ -56,15 +57,24 @@ export default async function Home() {
 				</div>
 
 				<div className="flex gap-4 flex-wrap uppercase mt-8 text-2xl font-medium justify-evenly">
-					<span>Capacity building</span>
-					<span>Platforms</span>
-					<span>Strategy</span>
-					<span>Data Science</span>
-					<span>OpenData</span>
+					{data.offer_items.map((item) => (
+						<div key={item.id} className="flex flex-col gap-4 items-center">
+							<Image
+								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.icon.data.attributes.url}`}
+								alt=""
+								width={150}
+								height={150}
+							/>
+							<span className="max-w-56 text-center">{item.title}</span>
+						</div>
+					))}
 				</div>
 
-				<a href="#" className="mt-8 inline-block font-medium text-lg">
-					Know More &gt;&gt;
+				<a
+					href={data.offer_link.url}
+					className="mt-8 inline-block font-medium text-lg"
+				>
+					{data.offer_link.title}
 				</a>
 			</section>
 
@@ -80,19 +90,16 @@ export default async function Home() {
 						<div className="">
 							<div className="font-heading">
 								<span className="text-4xl font-extrabold text-light-blue">
-									36,860
+									{data.data_items[0].title}
 								</span>
 								<p className="mt-2 text-3xl font-bold">
-									Public Contracts Opened
+									{data.data_items[0].sub_title}
 								</p>
 							</div>
 
-							<p className="mt-6">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-								ea minima deserunt vero. Quae a alias voluptates itaque delectus
-								sint quam. Laborum fugit temporibus dolores! Accusamus quis
-								neque provident odio!
-							</p>
+							<div className="mt-6">
+								<Markdown>{data.data_items[0].desc}</Markdown>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -106,8 +113,11 @@ export default async function Home() {
 						<Markdown>{data.about_desc}</Markdown>
 					</div>
 
-					<a href="#" className="my-8 inline-block font-medium text-lg">
-						Know More &gt;&gt;
+					<a
+						href={data.about_link.url}
+						className="my-8 inline-block font-medium text-lg"
+					>
+						{data.about_link.title}
 					</a>
 
 					<iframe
@@ -118,7 +128,7 @@ export default async function Home() {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerPolicy="strict-origin-when-cross-origin"
 						allowFullScreen
-					></iframe>
+					/>
 				</div>
 			</section>
 
@@ -127,95 +137,28 @@ export default async function Home() {
 				<Heading>{data.focus_title}</Heading>
 
 				<div className="grid gap-10 grid-cols-[repeat(auto-fit,minmax(min(310px,100%),1fr))] mt-8">
-					<div>
-						<h3 className="uppercase font-heading font-bold text-xl">
-							Digital Public Goods
-						</h3>
-						<p className="mt-1">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
-							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
-							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
-							Repudiandae, sed animi.
-						</p>
-						<a href="#" className="mt-1 inline-block font-medium text-lg">
-							Know More &gt;&gt;
-						</a>
-					</div>
-
-					<div>
-						<h3 className="uppercase font-heading font-bold text-xl">
-							Climate Action
-						</h3>
-						<p className="mt-1">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
-							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
-							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
-							Repudiandae, sed animi.
-						</p>
-						<a href="#" className="mt-1 inline-block font-medium text-lg">
-							Know More &gt;&gt;
-						</a>
-					</div>
-
-					<div>
-						<h3 className="uppercase font-heading font-bold text-xl">
-							Public Finance
-						</h3>
-						<p className="mt-1">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
-							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
-							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
-							Repudiandae, sed animi.
-						</p>
-						<a href="#" className="mt-1 inline-block font-medium text-lg">
-							Know More &gt;&gt;
-						</a>
-					</div>
-
-					<div>
-						<h3 className="uppercase font-heading font-bold text-xl">
-							Open Contracting India
-						</h3>
-						<p className="mt-1">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
-							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
-							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
-							Repudiandae, sed animi.
-						</p>
-						<a href="#" className="mt-1 inline-block font-medium text-lg">
-							Know More &gt;&gt;
-						</a>
-					</div>
-
-					<div>
-						<h3 className="uppercase font-heading font-bold text-xl">
-							Urban Development
-						</h3>
-						<p className="mt-1">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
-							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
-							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
-							Repudiandae, sed animi.
-						</p>
-						<a href="#" className="mt-1 inline-block font-medium text-lg">
-							Know More &gt;&gt;
-						</a>
-					</div>
-
-					<div>
-						<h3 className="uppercase font-heading font-bold text-xl">
-							Law & Justice
-						</h3>
-						<p className="mt-1">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque
-							eos sint dolorem suscipit adipisci officiis, aliquam voluptatum
-							minus dolor, doloribus unde debitis deserunt quasi eum nemo ipsam.
-							Repudiandae, sed animi.
-						</p>
-						<a href="#" className="mt-1 inline-block font-medium text-lg">
-							Know More &gt;&gt;
-						</a>
-					</div>
+					{data.focus_card.map((card) => (
+						<div key={card.id} className="flex flex-col gap-4">
+							<Image
+								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.icon.data.attributes.url}`}
+								alt=""
+								width={150}
+								height={150}
+							/>
+							<h3 className="max-w-56 uppercase font-heading font-bold text-xl">
+								{card.title}
+							</h3>
+							<div className="mt-1">
+								<Markdown>{card.desc}</Markdown>
+							</div>
+							<a
+								href={card.link.url}
+								className="mt-1 inline-block font-medium text-lg"
+							>
+								{card.link.title}
+							</a>
+						</div>
+					))}
 				</div>
 			</section>
 
@@ -227,18 +170,24 @@ export default async function Home() {
 					opts={{
 						loop: true,
 						align: 'start',
+						skipSnaps: true,
 					}}
 					className="w-full"
 				>
 					<CarouselContent className="-ml-1">
-						{Array.from({ length: 10 }).map((_, index) => (
+						{data.partner_items.data.map((item) => (
 							<CarouselItem
-								key={index}
+								key={item.id}
 								className="pl-1 md:basis-1/2 lg:basis-1/5"
 							>
 								<div className="p-1">
 									<div className="flex aspect-square items-center justify-center p-6">
-										<span className="text-2xl font-semibold">{index + 1}</span>
+										<Image
+											src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.attributes.url}`}
+											alt=""
+											width={150}
+											height={150}
+										/>
 									</div>
 								</div>
 							</CarouselItem>
@@ -258,20 +207,24 @@ export default async function Home() {
 						opts={{
 							loop: true,
 							align: 'start',
+							skipSnaps: true,
 						}}
 						className="w-full"
 					>
 						<CarouselContent className="-ml-1">
-							{Array.from({ length: 10 }).map((_, index) => (
+							{data.team_items.data.map((item) => (
 								<CarouselItem
-									key={index}
+									key={item.id}
 									className="pl-1 md:basis-1/2 lg:basis-1/5"
 								>
 									<div className="p-1">
 										<div className="flex aspect-square items-center justify-center p-6">
-											<span className="text-2xl font-semibold">
-												{index + 1}
-											</span>
+											<Image
+												src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.attributes.url}`}
+												alt=""
+												width={150}
+												height={150}
+											/>
 										</div>
 									</div>
 								</CarouselItem>
