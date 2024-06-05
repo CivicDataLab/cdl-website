@@ -2,7 +2,30 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Details from "@/components/Details/Details";
 
+interface ParticipationSection {
+  title: string;
+  date: string;
+  location: string;
+  partnerLogoSrc: string;
+  eventImageSrc: string;
+}
+
+const EventSection: React.FC<ParticipationSection> = ({ title, date, location, partnerLogoSrc, eventImageSrc }) => {
+  return (
+    <div className="flex justify-center flex-wrap items-center mt-12">
+      <div className="lg:p-10 p-6 md:w-3/4 lg:min-h-64 lg:max-h-64 lg:w-2/4 bg-white">
+        <h2 className="font-heading text-2xl font-bold mb-3">{title}</h2>
+        <p className=" mb-4">
+          {date} | {location}
+        </p>
+        <Image src={partnerLogoSrc} width={120} height={30} className="object-contain" alt="event logo" />
+      </div>
+      <Image src={eventImageSrc} width={560} height={340} className="object-cover lg:min-h-64 lg:max-h-64 " alt="event logo" />
+    </div>
+  );
+};
 const Events = () => {
   const EventsData = [
     {
@@ -26,6 +49,7 @@ const Events = () => {
           img: "/event-sec2.4.png",
         },
       ],
+      sidebarImg: "/globe.png",
     },
     {
       name: "Data Dialogues",
@@ -100,37 +124,7 @@ const Events = () => {
           </div>
         </div>
       </section>
-      <section className="p-6 mb-12">
-        <div className="flex gap-4 p-2 justify-start overflow-auto scrollbar-hide lg:justify-center">
-          {EventsData.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => setSelected(item)}
-              className={`whitespace-nowrap rounded-3xl border-2 w-fit h-fit px-3 py-1 ${
-                selected.name === item.name ? "bg-black text-white" : "border-black"
-              }`}
-            >
-              {item.name}
-            </button>
-          ))}
-        </div>
-        <div className="flex justify-center flex-wrap lg:flex-nowrap mt-8 gap-16 px-5">
-          <div className=" w-full lg:w-2/6 2xl:w-1/6 ">
-            <Image src="/globe.png" width={160} height={80} className="object-contain" alt="logo" />
-
-            <h2 className="font-heading text-2xl font-bold mb-3">{selected.name}</h2>
-            <p className="text-xl">{selected.desc}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-            {selected.res?.map((details, index) => (
-              <div key={index} className="max-w-96">
-                <Image src={details.img} width={400} height={300} className="object-contain" alt={details.name} />
-                <p className="text-xl">{details.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Details selected={selected} setSelected={setSelected} Data={EventsData} />
       <section>
         <div className="bg-light-green w-full lg:p-20 p-10 ">
           <div>
@@ -140,26 +134,21 @@ const Events = () => {
               community engagement to create resilient/sustainable solutions/ interventions.
             </p>
           </div>
-          <div className="flex justify-center flex-wrap  items-center mt-12">
-            <div className="lg:p-10 p-6 md:w-3/4 lg:min-h-64  lg:max-h-64 lg:w-2/4 bg-white">
-              <h2 className="font-heading text-2xl font-bold mb-3">
-                Tech4Impact Non-Profit <br /> CTO Convergence Event
-              </h2>
-              <p className=" mb-4">5th April 2024 | Bangalore</p>
-              <Image src="/event-partner1.png" width={120} height={30} className="object-contain" alt="event logo" />
-            </div>
-            <Image src="/event-sec3.1.png" width={560} height={340} className="object-cover lg:min-h-64 lg:max-h-64 " alt="event logo" />
-          </div>
-          <div className="flex justify-center flex-wrap items-center mt-12">
-            <div className="lg:p-10 p-6 md:w-3/4 lg:min-h-64  lg:max-h-64 lg:w-2/4 bg-white">
-              <h2 className="font-heading text-2xl font-bold mb-3">
-                European Data Summit <br /> 2024
-              </h2>
-              <p className=" mb-4">15th April 2024 | Berlin</p>
-              <Image src="/event-partner2.png" width={120} height={30} className="object-contain" alt="event logo" />
-            </div>
-            <Image src="/event-sec3.2.png" width={560} height={340} className="object-cover lg:min-h-64 lg:max-h-64 " alt="event logo" />
-          </div>
+          <EventSection
+            title="Tech4Impact Non-Profit CTO Convergence Event"
+            date="5th April 2024"
+            location="Bangalore"
+            partnerLogoSrc="/event-partner1.png"
+            eventImageSrc="/event-sec3.1.png"
+          />
+
+          <EventSection
+            title="European Data Summit 2024"
+            date="15th April 2024"
+            location="Berlin"
+            partnerLogoSrc="/event-partner2.png"
+            eventImageSrc="/event-sec3.2.png"
+          />
         </div>
       </section>
     </div>
