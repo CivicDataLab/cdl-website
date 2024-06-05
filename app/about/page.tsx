@@ -72,6 +72,154 @@ export default function About() {
 					/>
 				</div>
 			</section>
+
+			{/* vision */}
+
+			<section className="bg-dark-grey py-20 text-on-bg">
+				<div className="container">
+					<Heading>Our Vision</Heading>
+					<p className="mt-4">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
+						doloribus harum veniam in ratione sequi iste commodi nisi, ipsam ea
+						corporis, natus, minus dolore laudantium quod voluptas similique.
+						Pariatur, perspiciatis.
+					</p>
+					<a href="#" className="inline-block font-medium text-lg mt-4">
+						Know more &gt;&gt;
+					</a>
+
+					<iframe
+						width="100%"
+						height="520"
+						src="https://www.youtube-nocookie.com/embed/8JoctVLMEyc?si=k2SFIEWZtJ_f_5kz"
+						title="YouTube video player"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerPolicy="strict-origin-when-cross-origin"
+						allowFullScreen
+						className="mt-8"
+					></iframe>
+				</div>
+			</section>
+
+			{/* values */}
+			<section className="bg-dark-grey py-10 text-on-bg">
+				<div className="container">
+					<Heading>Our Values</Heading>
+					<div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
+						<div className="grid gap-10">
+							<div>
+								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+									OPENNESS
+								</h3>
+								<p className="mt-4">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+									<br />
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+									iste eveniet non consequatur laboriosam tempora dolorem
+									ducimus blanditiis delectus minus fugit maxime consectetur
+									debitis perspiciatis, in voluptatum culpa reprehenderit
+									assumenda.
+								</p>
+							</div>
+
+							<div>
+								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+									Experimentation & Innovation
+								</h3>
+								<p className="mt-4">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+									<br />
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+									iste eveniet non consequatur laboriosam tempora dolorem
+									ducimus blanditiis delectus minus fugit maxime consectetur
+									debitis perspiciatis, in voluptatum culpa reprehenderit
+									assumenda.
+								</p>
+							</div>
+						</div>
+
+						<div className="grid gap-10">
+							<div>
+								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+									Diversity & Inclusivity
+								</h3>
+								<p className="mt-4">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+								</p>
+							</div>
+
+							<div>
+								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+									Co-creation & Participation
+								</h3>
+								<p className="mt-4">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+									<br />
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+								</p>
+							</div>
+
+							<div>
+								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+									Trust & Empathy
+								</h3>
+								<p className="mt-4">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+								</p>
+							</div>
+						</div>
+
+						<div className="grid gap-10">
+							<div>
+								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+									Feedbacks
+								</h3>
+								<p className="mt-4">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+								</p>
+							</div>
+
+							<div>
+								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+									Fun & Engaging
+								</h3>
+								<p className="mt-4">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+									<br />
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+									cum aperiam sed temporibus quos provident mollitia vel ipsam
+									odio quia, alias dicta ex inventore maiores sint ipsum
+									nesciunt. Numquam, quaerat.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 	)
 }
