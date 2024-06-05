@@ -141,24 +141,24 @@ const Events = () => {
             </p>
           </div>
           <div className="flex justify-center flex-wrap  items-center mt-12">
-            <div className="lg:p-10 p-6 md:w-3/4 lg:w-2/4 bg-white">
+            <div className="lg:p-10 p-6 md:w-3/4 lg:min-h-64  lg:max-h-64 lg:w-2/4 bg-white">
               <h2 className="font-heading text-2xl font-bold mb-3">
                 Tech4Impact Non-Profit <br /> CTO Convergence Event
               </h2>
               <p className=" mb-4">5th April 2024 | Bangalore</p>
               <Image src="/event-partner1.png" width={120} height={30} className="object-contain" alt="event logo" />
             </div>
-            <Image src="/event-sec3.1.png" width={560} height={340} className="object-contain" alt="event logo" />
+            <Image src="/event-sec3.1.png" width={560} height={340} className="object-cover lg:min-h-64 lg:max-h-64 " alt="event logo" />
           </div>
           <div className="flex justify-center flex-wrap items-center mt-12">
-            <div className="lg:p-10 p-6 md:w-3/4 lg:w-2/3 xl:w-2/4 bg-white">
+            <div className="lg:p-10 p-6 md:w-3/4 lg:min-h-64  lg:max-h-64 lg:w-2/4 bg-white">
               <h2 className="font-heading text-2xl font-bold mb-3">
                 European Data Summit <br /> 2024
               </h2>
               <p className=" mb-4">15th April 2024 | Berlin</p>
               <Image src="/event-partner2.png" width={120} height={30} className="object-contain" alt="event logo" />
             </div>
-            <Image src="/event-sec3.2.png" width={560} height={340} className="object-contain" alt="event logo" />
+            <Image src="/event-sec3.2.png" width={560} height={340} className="object-cover lg:min-h-64 lg:max-h-64 " alt="event logo" />
           </div>
         </div>
       </section>
