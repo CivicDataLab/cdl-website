@@ -1,5 +1,3 @@
-'use client'
-
 import {
 	Carousel,
 	CarouselContent,
@@ -8,10 +6,17 @@ import {
 	CarouselPrevious,
 } from '@/components/Carousel/Carousel'
 import { Globe } from '@/components/Globe'
+import { Typed } from '@/components/Typed'
+import { getStrapiData } from '@/lib/utils'
+import { Homepage } from '@/types/homepage'
 import Image from 'next/image'
-import { ReactTyped } from 'react-typed'
+import Markdown from 'react-markdown'
 
-export default function Home() {
+export default async function Home() {
+	const strapiData: Homepage = await getStrapiData(`/homepage`)
+
+	const data = strapiData.data.attributes
+
 	return (
 		<main>
 			{/* Header */}
@@ -27,24 +32,15 @@ export default function Home() {
 
 					<div className="flex flex-col gap-4 font-heading min-h-[124px]">
 						<h1 className="text-3xl text-center font-medium">
-							We work to strengthen the course of <br />
-							<span className="font-bold"> Civic Engagement </span>
-							using
+							<Markdown>{data.heading}</Markdown>
+
 							<span className="sr-only">
 								data, tech, design, social science
 							</span>
 						</h1>
 
-						<div
-							aria-hidden="true"
-							className="text-3xl text-center text-dark-blue font-bold"
-						>
-							<ReactTyped
-								strings={['DATA', 'TECH', 'DESIGN', 'SOCIAL SCIENCE']}
-								typeSpeed={50}
-								backSpeed={60}
-								loop
-							/>
+						<div className="text-3xl text-center text-dark-blue font-bold">
+							<Typed list={['DATA', 'TECH', 'DESIGN', 'SOCIAL SCIENCE']} />
 						</div>
 					</div>
 				</div>
@@ -53,14 +49,11 @@ export default function Home() {
 			{/* Sectors */}
 
 			<section className="container py-16">
-				<Heading>What CDL Offers</Heading>
-				<p className="mt-3">
-					We make data accessible to help strengthen evidence based decision
-					making and increase citizen engagement for sustainable impact on
-					ground. By harnessing the potential of OpenData movement, we build
-					institutional data capacity, develop and co-create data platforms and
-					enable data-driven interventions.
-				</p>
+				<Heading>{data.offer_title}</Heading>
+
+				<div className="mt-3">
+					<Markdown>{data.offer_desc}</Markdown>
+				</div>
 
 				<div className="flex gap-4 flex-wrap uppercase mt-8 text-2xl font-medium justify-evenly">
 					<span>Capacity building</span>
@@ -78,7 +71,7 @@ export default function Home() {
 			{/* Data */}
 			<section className="py-16 bg-dark-grey text-on-bg">
 				<div className="container">
-					<Heading>Data at CDL</Heading>
+					<Heading>{data.data_title}</Heading>
 
 					<div className="flex gap-12 mt-8 items-center justify-center">
 						<div className="min-w-[600px] hidden md:block">
@@ -108,13 +101,10 @@ export default function Home() {
 			{/* About */}
 			<section className="bg-light-blue">
 				<div className="container py-16">
-					<Heading>About CDL</Heading>
-					<p className="mt-3">
-						CivicDataLab, set-up in 2018, working towards building OpenData
-						networks for evidence based decision making with increased community
-						engagement to create resilient/ sustainable solutions/
-						interventions.
-					</p>
+					<Heading>{data.about_title}</Heading>
+					<div className="mt-3">
+						<Markdown>{data.about_desc}</Markdown>
+					</div>
 
 					<a href="#" className="my-8 inline-block font-medium text-lg">
 						Know More &gt;&gt;
@@ -123,19 +113,18 @@ export default function Home() {
 					<iframe
 						width="100%"
 						height="520"
-						src="https://www.youtube-nocookie.com/embed/8JoctVLMEyc?si=k2SFIEWZtJ_f_5kz"
+						src={data.about_youtube}
 						title="YouTube video player"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerPolicy="strict-origin-when-cross-origin"
 						allowFullScreen
 					></iframe>
-					{/* <div className="bg-blue-400 rounded-sm w-full h-96"></div> */}
 				</div>
 			</section>
 
 			{/* Focus Area */}
 			<section className="container py-16">
-				<Heading>Focus Areas</Heading>
+				<Heading>{data.focus_title}</Heading>
 
 				<div className="grid gap-10 grid-cols-[repeat(auto-fit,minmax(min(310px,100%),1fr))] mt-8">
 					<div>
@@ -232,7 +221,7 @@ export default function Home() {
 
 			{/* Partners */}
 			<section className="container py-16">
-				<Heading>Our Partners</Heading>
+				<Heading>{data.partner_title}</Heading>
 
 				<Carousel
 					opts={{
@@ -263,7 +252,7 @@ export default function Home() {
 			{/* Team */}
 			<section className="bg-light-blue">
 				<div className="container py-16">
-					<Heading>Meet Our Bandhus</Heading>
+					<Heading>{data.team_title}</Heading>
 
 					<Carousel
 						opts={{

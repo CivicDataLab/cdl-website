@@ -1,3 +1,4 @@
+'use client'
 // https://github.com/shuding/cobe
 
 import createGlobe from 'cobe'
