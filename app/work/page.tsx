@@ -7,8 +7,6 @@ import Details from "@/components/Details/Details";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/Carousel/Carousel";
 
 const Work = () => {
-  // Digital Public Goods & infrastructure, Climate Action,
-  //  Public Finance, Open Contracting India, Urban Development, Law & Justice
   const WorkData = [
     {
       name: "DPGs",
