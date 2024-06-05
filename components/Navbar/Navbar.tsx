@@ -83,7 +83,7 @@ const Item = ({
 			<a
 				href={href}
 				className={cn(
-					'block px-4 py-2 font-heading font-semibold rounded-t-sm',
+					'block px-4 py-2 font-heading font-semibold rounded-t-md',
 					active && color
 				)}
 			>
