@@ -105,118 +105,75 @@ export default function About() {
 			<section className="bg-dark-grey py-10 text-on-bg">
 				<div className="container">
 					<Heading>Our Values</Heading>
-					<div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-10">
-						<div className="grid gap-10">
-							<div>
-								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
-									OPENNESS
-								</h3>
-								<p className="mt-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-									<br />
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-									iste eveniet non consequatur laboriosam tempora dolorem
-									ducimus blanditiis delectus minus fugit maxime consectetur
-									debitis perspiciatis, in voluptatum culpa reprehenderit
-									assumenda.
-								</p>
-							</div>
+					<div className="mt-10 columns-2 md:columns-3 gap-10 [&>div]:mb-8">
+						<ValueCard title="OPENNESS">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+							<br />
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. A iste
+							eveniet non consequatur laboriosam tempora dolorem ducimus
+							blanditiis delectus minus fugit maxime consectetur debitis
+							perspiciatis, in voluptatum culpa reprehenderit assumenda.
+						</ValueCard>
 
-							<div>
-								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
-									Experimentation & Innovation
-								</h3>
-								<p className="mt-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-									<br />
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-									iste eveniet non consequatur laboriosam tempora dolorem
-									ducimus blanditiis delectus minus fugit maxime consectetur
-									debitis perspiciatis, in voluptatum culpa reprehenderit
-									assumenda.
-								</p>
-							</div>
-						</div>
+						<ValueCard title="Experimentation & Innovation">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+							<br />
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. A iste
+							eveniet non consequatur laboriosam tempora dolorem ducimus
+							blanditiis delectus minus fugit maxime consectetur debitis
+							perspiciatis, in voluptatum culpa reprehenderit assumenda.
+						</ValueCard>
 
-						<div className="grid gap-10">
-							<div>
-								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
-									Diversity & Inclusivity
-								</h3>
-								<p className="mt-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-								</p>
-							</div>
+						<ValueCard title="Diversity & Inclusivity">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+						</ValueCard>
 
-							<div>
-								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
-									Co-creation & Participation
-								</h3>
-								<p className="mt-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-									<br />
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-								</p>
-							</div>
+						<ValueCard title="Co-creation & Participation">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+							<br />
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+						</ValueCard>
 
-							<div>
-								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
-									Trust & Empathy
-								</h3>
-								<p className="mt-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-								</p>
-							</div>
-						</div>
+						<ValueCard title="Trust & Empathy">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+						</ValueCard>
 
-						<div className="grid gap-10">
-							<div>
-								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
-									Feedbacks
-								</h3>
-								<p className="mt-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-								</p>
-							</div>
+						<ValueCard title="Feedbacks">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+						</ValueCard>
 
-							<div>
-								<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
-									Fun & Engaging
-								</h3>
-								<p className="mt-4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-									<br />
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-									cum aperiam sed temporibus quos provident mollitia vel ipsam
-									odio quia, alias dicta ex inventore maiores sint ipsum
-									nesciunt. Numquam, quaerat.
-								</p>
-							</div>
-						</div>
+						<ValueCard title="Fun & Engaging">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+							<br />
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
+							aperiam sed temporibus quos provident mollitia vel ipsam odio
+							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
+							Numquam, quaerat.
+						</ValueCard>
 					</div>
 				</div>
 			</section>
@@ -226,4 +183,19 @@ export default function About() {
 
 const Heading = ({ children }: { children: React.ReactNode }) => (
 	<h2 className="font-heading font-extrabold text-2xl">{children}</h2>
+)
+
+const ValueCard = ({
+	title,
+	children,
+}: {
+	title: string
+	children: React.ReactNode
+}) => (
+	<div className="break-inside-avoid-column flex flex-col gap-4">
+		<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+			{title}
+		</h3>
+		<p>{children}</p>
+	</div>
 )
