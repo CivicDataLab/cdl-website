@@ -14,7 +14,7 @@ interface ParticipationSection {
 
 const EventSection: React.FC<ParticipationSection> = ({ title, date, location, partnerLogoSrc, eventImageSrc }) => {
   return (
-    <div className="flex justify-center flex-wrap items-center mt-12 ">
+    <div className="flex container justify-center flex-wrap items-center mt-12 ">
       <div className="lg:p-10 p-6 md:w-3/4 lg:min-h-64 lg:max-h-64 lg:w-2/4 bg-white">
         <h2 className="font-heading text-2xl font-bold mb-3">{title}</h2>
         <p className=" mb-4">
@@ -127,7 +127,7 @@ const Events = () => {
       <Details selected={selected} setSelected={setSelected} Data={EventsData} />
       <section>
         <div className="bg-light-green w-full lg:p-20 p-10 ">
-          <div>
+          <div className="container">
             <h2 className=" font-heading text-2xl font-extrabold mb-3">Our Participation</h2>
             <p className="text-xl">
               A paragraph CivicDatalab is an organisation working towards building OpenData networks for evidence based decision making with increased
@@ -149,9 +149,11 @@ const Events = () => {
             partnerLogoSrc="/event-partner2.png"
             eventImageSrc="/event-sec3.2.png"
           />
-          <a href="#" className="mt-8 inline-block font-extrabold text-lg">
-            Know More &gt;&gt;
-          </a>
+          <div className="container">
+            <a href="#" className="mt-8 inline-block font-extrabold text-lg">
+              Know More &gt;&gt;
+            </a>
+          </div>
         </div>
       </section>
     </div>
