@@ -20,7 +20,7 @@ const socialLinks = [
 
 export const Footer = () => {
 	return (
-		<footer className="flex items-center justify-between py-16 px-6 bg-black text-white">
+		<footer className="flex items-center justify-between py-16 px-6 bg-dark text-on-bg">
 			<div className="flex flex-col justify-between gap-16">
 				<div className="flex flex-col gap-1 font-medium">
 					<a href="mailto:info@civicdatalab.in" className="text-lg">
@@ -34,7 +34,7 @@ export const Footer = () => {
 									target="_blank"
 									href={href}
 									key={name}
-									className="bg-white p-2 rounded-full"
+									className="bg-on-bg p-2 rounded-full"
 								>
 									<Image src={icon} alt={name} width={20} height={20} />
 								</a>

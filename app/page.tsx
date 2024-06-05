@@ -76,7 +76,7 @@ export default function Home() {
 			</section>
 
 			{/* Data */}
-			<section className="py-16 bg-dark-grey text-white">
+			<section className="py-16 bg-dark-grey text-on-bg">
 				<div className="container">
 					<Heading>Data at CDL</Heading>
 

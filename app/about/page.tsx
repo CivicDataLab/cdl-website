@@ -1,4 +1,5 @@
 import { HomeIcon } from 'lucide-react'
+import Image from 'next/image'
 
 const offerings = [
 	{
@@ -33,9 +34,9 @@ export default function About() {
 						{offerings.map((offering) => (
 							<div
 								key={offering.title}
-								className="flex flex-col items-center gap-2 justify-center"
+								className="flex flex-col items-center gap-4 justify-center"
 							>
-								<offering.icon size={48} />
+								<Image src="/offer-icon.png" alt="" width={128} height={128} />
 								<span className="text-xl font-medium">{offering.title}</span>
 							</div>
 						))}
@@ -48,6 +49,33 @@ export default function About() {
 					</a>
 				</div>
 			</section>
+
+			{/* process */}
+			<section className="container py-20 lg:py-40">
+				<div className="flex flex-col gap-8 items-center justify-between lg:flex-row">
+					<div>
+						<Heading>Our Process</Heading>
+						<p className="mt-4">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+							iusto repudiandae accusantium minima ratione consequatur
+							recusandae possimus voluptatum facilis exercitationem, distinctio
+							animi dignissimos dolor? Cumque odio deserunt temporibus obcaecati
+							illo.
+						</p>
+					</div>
+					<Image
+						src="/process.png"
+						alt=""
+						width={700}
+						height={470}
+						className="object-contain"
+					/>
+				</div>
+			</section>
 		</main>
 	)
 }
+
+const Heading = ({ children }: { children: React.ReactNode }) => (
+	<h2 className="font-heading font-extrabold text-2xl">{children}</h2>
+)

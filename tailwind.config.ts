@@ -14,6 +14,10 @@ const config: Config = {
 				'dark-grey': 'var(--dark-grey)',
 				'dark-blue': 'var(--dark-blue)',
 				highlight: 'var(--highlight)',
+				text: 'var(--text)',
+				bg: 'var(--bg)',
+				'on-bg': 'var(--text-on-bg)',
+				dark: 'var(--bg-dark)',
 			},
 			fontFamily: {
 				body: ['var(--font-mukta)'],

@@ -42,7 +42,7 @@ export const Navbar = () => {
 
 	return (
 		<nav className="flex items-center justify-end pt-1 px-6">
-			<div className="bg-white rounded-full p-6 absolute -top-3 -left-2">
+			<div className="bg-on-bg rounded-full p-6 absolute -top-3 -left-2">
 				<Image
 					src="/logo.png"
 					width={70}
