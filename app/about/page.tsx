@@ -74,7 +74,6 @@ export default function About() {
 			</section>
 
 			{/* vision */}
-
 			<section className="bg-dark-grey py-20 text-on-bg">
 				<div className="container">
 					<Heading>Our Vision</Heading>
@@ -174,6 +173,67 @@ export default function About() {
 							quia, alias dicta ex inventore maiores sint ipsum nesciunt.
 							Numquam, quaerat.
 						</ValueCard>
+					</div>
+				</div>
+			</section>
+
+			{/* pillars */}
+			<section className="flex items-center justify-center md:justify-between container">
+				<div className="py-20 flex flex-col md:flex-row lg:flex-col">
+					<div className="max-w-96">
+						<Heading>Our four pillars</Heading>
+						<p className="mt-4">
+							We ground our work’s value and validity in our multidisciplinary
+							approach. Our DATA pillar provides expertise in data science,
+							modelling, learning etc, while our TECH pillar aids in providing
+							engineering and tech management. Our DESIGN pillar helps approach
+							data-driven solutions from a stakeholder-perspective using design
+							thinking, and our SOCIAL SCIENCE pillar allows our work to become
+							viable, adaptable and impactful at scale.
+						</p>
+					</div>
+
+					<div className="flex flex-col gap-8 uppercase mt-10 pl-20 font-heading font-bold text-xl">
+						<span>Data</span>
+						<span>Tech</span>
+						<span>Design</span>
+						<span>Social Science</span>
+					</div>
+				</div>
+
+				<Image
+					src="/roots.png"
+					alt=""
+					width={640}
+					height={740}
+					className="object-contain hidden lg:block"
+				/>
+			</section>
+
+			{/* team */}
+			<section className="py-20 bg-dark-blue text-on-bg">
+				<div className="container ">
+					<Heading>Our Bandhus</Heading>
+					<p className="mt-4 max-w-[450px]">
+						Meet our multidisciplinary team of Bandhus- experts from all across
+						India dedicated to data for public good across sectors and
+						thematics.
+					</p>
+
+					<div className="flex flex-wrap gap-8 mt-10">
+						{Array.from({ length: 6 }).map((_, idx) => (
+							<div key={idx} className="flex flex-col items-center gap-4">
+								<Image
+									src="/team-member.png"
+									alt=""
+									width={300}
+									height={200}
+									className="object-cover"
+								/>
+								<span className="text-xl font-medium">Name</span>
+								<span className="text-lg">Role</span>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>
