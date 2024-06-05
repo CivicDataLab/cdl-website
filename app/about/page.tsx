@@ -193,11 +193,17 @@ export default function About() {
 						</p>
 					</div>
 
-					<div className="flex flex-col gap-8 uppercase mt-10 pl-20 font-heading font-bold text-xl">
-						<span>Data</span>
-						<span>Tech</span>
-						<span>Design</span>
-						<span>Social Science</span>
+					<div className="flex flex-col gap-4 uppercase mt-10 pl-10 font-heading font-bold text-xl">
+						<span className="py-1 px-2 rounded-md w-fit text-on-bg bg-data">
+							Data
+						</span>
+						<span className="py-1 px-2 rounded-md w-fit bg-tech">Tech</span>
+						<span className="py-1 px-2 rounded-md w-fit text-on-bg bg-design">
+							Design
+						</span>
+						<span className="py-1 px-2 rounded-md w-fit bg-social-science">
+							Social Science
+						</span>
 					</div>
 				</div>
 
@@ -220,18 +226,22 @@ export default function About() {
 						thematics.
 					</p>
 
-					<div className="flex flex-wrap gap-8 mt-10">
-						{Array.from({ length: 6 }).map((_, idx) => (
-							<div key={idx} className="flex flex-col items-center gap-4">
+					<div className="grid gap-10 grid-cols-[repeat(auto-fit,minmax(min(310px,100%),1fr))] mt-10">
+						{Array.from({ length: 5 }).map((_, idx) => (
+							<div key={idx} className="flex items-end gap-6">
 								<Image
-									src="/team-member.png"
+									src="/team/shoaib.png"
 									alt=""
-									width={300}
+									width={100}
 									height={200}
-									className="object-cover"
+									className="object-contain"
 								/>
-								<span className="text-xl font-medium">Name</span>
-								<span className="text-lg">Role</span>
+								<div className="flex flex-col mb-10 max-w-48 font-heading">
+									<span className="text-xl font-bold">Shoaib</span>
+									<span className="leading-5 text-sm">
+										Associate Lead Engineer Frontend
+									</span>
+								</div>
 							</div>
 						))}
 					</div>

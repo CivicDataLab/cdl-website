@@ -10,14 +10,18 @@
 
 :root {
 	--light-blue: #c7dff3;
-	--light-green: rgb(204, 255, 206);
+	--light-green: #ccffce;
 	--dark-grey: #393837;
 	--dark-blue: #22699d;
-	--highlight: rgb(238, 89, 64);
+	--highlight: #ee5940;
 	--text: #000000;
 	--bg: #ffffff;
 	--text-on-bg: #ffffff;
 	--bg-dark: #000000;
+	--data: var(--dark-blue);
+	--tech: #a9e5ab;
+	--design: var(--highlight);
+	--social-science: #f2cb58;
 }
 
 body {

@@ -18,6 +18,10 @@ const config: Config = {
 				bg: 'var(--bg)',
 				'on-bg': 'var(--text-on-bg)',
 				dark: 'var(--bg-dark)',
+				data: 'var(--data)',
+				tech: 'var(--tech)',
+				design: 'var(--design)',
+				'social-science': 'var(--social-science)',
 			},
 			fontFamily: {
 				body: ['var(--font-mukta)'],
