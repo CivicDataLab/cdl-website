@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Details from "@/components/Details/Details";
+import { parseAsString, useQueryState } from "next-usequerystate";
 
 interface ParticipationSection {
   title: string;
@@ -100,8 +101,23 @@ const Events = () => {
       ],
     },
   ];
+  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault("Climate Dialogues"));
+  const [selected, setSelected] = useState(() => {
+    return EventsData.find((item) => item.name === filter) || EventsData[0];
+  });
 
-  const [selected, setSelected] = useState(EventsData[0]);
+  useEffect(() => {
+    const found = EventsData.find((item) => item.name === filter);
+    if (found) {
+      setSelected(found);
+    }
+  }, [filter]);
+
+  useEffect(() => {
+    if (selected.name !== filter) {
+      setFilter(selected.name);
+    }
+  }, [selected]);
   return (
     <div>
       {" "}
