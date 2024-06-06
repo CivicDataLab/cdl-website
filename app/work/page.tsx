@@ -100,16 +100,13 @@ const Work = () => {
   ];
   const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault("DPGs"));
   const [selected, setSelected] = useState(() => {
-    const found = WorkData.find((item) => item.name === filter);
-    return found ? found : WorkData[0];
+    return WorkData.find((item) => item.name === filter) || WorkData[0];
   });
 
   useEffect(() => {
-    if (filter) {
-      const found = WorkData.find((item) => item.name === filter);
-      if (found) {
-        setSelected(found);
-      }
+    const found = WorkData.find((item) => item.name === filter);
+    if (found) {
+      setSelected(found);
     }
   }, [filter]);
 
@@ -117,7 +114,7 @@ const Work = () => {
     if (selected.name !== filter) {
       setFilter(selected.name);
     }
-  }, [selected, filter]);
+  }, [selected]);
 
   return (
     <div>
