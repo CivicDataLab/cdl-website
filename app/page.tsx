@@ -14,9 +14,7 @@ import Markdown from 'react-markdown'
 
 export default async function Home() {
 	const strapiData: Homepage = await getStrapiData(`/homepage`)
-
 	const data = strapiData.data.attributes
-	console.log(data)
 
 	return (
 		<main>
@@ -48,7 +46,6 @@ export default async function Home() {
 			</section>
 
 			{/* Sectors */}
-
 			<section className="container py-16">
 				<Heading>{data.offer_title}</Heading>
 
