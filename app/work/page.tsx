@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Details from "@/components/Details/Details";
+import { parseAsString, useQueryState } from "next-usequerystate";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/Carousel/Carousel";
 
@@ -96,19 +97,28 @@ const Work = () => {
         },
       ],
     },
-    {
-      name: " Urban Development",
-      desc: "Access our comprehensive reports that provide detailed analysis and findings.",
-      res: [
-        {
-          name: "Disaster Reporting Platform: Indonesia",
-          img: "/event-sec2.3.png",
-        },
-      ],
-    },
   ];
+  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault("DPGs"));
+  const [selected, setSelected] = useState(() => {
+    const found = WorkData.find((item) => item.name === filter);
+    return found ? found : WorkData[0];
+  });
 
-  const [selected, setSelected] = useState(WorkData[0]);
+  useEffect(() => {
+    if (filter) {
+      const found = WorkData.find((item) => item.name === filter);
+      if (found) {
+        setSelected(found);
+      }
+    }
+  }, [filter]);
+
+  useEffect(() => {
+    if (selected.name !== filter) {
+      setFilter(selected.name);
+    }
+  }, [selected, filter]);
+
   return (
     <div>
       {" "}
