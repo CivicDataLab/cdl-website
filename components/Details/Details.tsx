@@ -49,6 +49,10 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 								alt=""
 								width={120}
 								height={120}
+								style={{
+									width: '120px',
+									height: '120px',
+								}}
 							/>
 						)}
 						<p className="font-heading text-2xl font-bold mt-4">
@@ -67,10 +71,14 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 							>
 								<Image
 									src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
-									width={640}
+									width={524}
 									height={300}
-									className="object-contain"
+									className="object-cover"
 									alt={attributes.title}
+									style={{
+										width: '524px',
+										height: '300px',
+									}}
 								/>
 								<p className="text-xl font-bold mt-2">{attributes.title}</p>
 							</a>

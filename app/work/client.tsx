@@ -34,6 +34,10 @@ export function WorkClient({
 							src={getStrapiMediaUrl(pageData.work_img.data.attributes.url)}
 							width={600}
 							height={390}
+							style={{
+								width: '600px',
+								height: '390px',
+							}}
 							className="object-contain"
 							alt="book logo"
 						/>
@@ -75,6 +79,10 @@ export function WorkClient({
 										<div className="flex aspect-square items-center justify-center p-6">
 											<Image
 												src={getStrapiMediaUrl(item.attributes.url)}
+												style={{
+													width: '150px',
+													height: '150px',
+												}}
 												alt=""
 												width={150}
 												height={150}

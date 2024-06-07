@@ -28,6 +28,10 @@ export const Footer = () => {
 							src="/logo_dark.png"
 							width={80}
 							height={104}
+							style={{
+								width: '80px',
+								height: '104px',
+							}}
 							className="object-contain"
 							alt="civicdatalab logo"
 						/>
@@ -55,7 +59,16 @@ export const Footer = () => {
 										key={name}
 										className="bg-on-bg p-2 rounded-full"
 									>
-										<Image src={icon} alt={name} width={20} height={20} />
+										<Image
+											src={icon}
+											alt={name}
+											width={20}
+											height={20}
+											style={{
+												width: '20px',
+												height: '20px',
+											}}
+										/>
 									</a>
 								))}
 							</div>
