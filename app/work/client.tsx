@@ -28,7 +28,7 @@ export function WorkClient({
 		<div>
 			<section>
 				<div className="bg-light-green w-full">
-					<div className="flex  justify-center flex-wrap items-center py-16 px-8 lg:p-10 gap-10 lg:gap-26 flex-grow">
+					<div className="flex justify-center flex-wrap items-center py-16 px-8 lg:p-10 gap-10 lg:gap-26 flex-grow">
 						<Image
 							src={getStrapiMediaUrl(maindata.work_img.data.attributes.url)}
 							width={600}

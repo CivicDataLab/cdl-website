@@ -47,7 +47,6 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 		'filter',
 		parseAsString.withDefault(filters[0].value)
 	)
-	console.log(content, filter)
 	const selectedContent = content.find((item: any) => item.uuid === filter)
 
 	return (
@@ -67,7 +66,7 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 			</div>
 			<div className="flex justify-center flex-wrap sm:flex-nowrap gap-14 mt-8 px-5">
 				{selectedContent && (
-					<div className="sm:max-w-52 sm:shrink-0 grow sticky top-0 h-fit">
+					<div className="sm:max-w-52 sm:shrink-0 grow h-fit">
 						{selectedContent.image.data && (
 							<Image
 								src={getStrapiMediaUrl(
