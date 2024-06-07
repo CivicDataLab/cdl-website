@@ -14,53 +14,27 @@ interface DetailsProps {
 	content: WorkTypes['data']['attributes']['details']
 }
 
-const filters = [
-	{
-		label: 'DPGs',
-		value: 'dpgs',
-	},
-	{
-		label: 'Climate Action',
-		value: 'climate-action',
-	},
-	{
-		label: 'Public Finance',
-		value: 'public-finance',
-	},
-	{
-		label: 'Open Contracting India',
-		value: 'open-contracting-india',
-	},
-	{
-		label: 'Urban Development',
-		value: 'urban-development',
-	},
-	{
-		label: 'Law & Justice',
-		value: 'law-justice',
-	},
-]
-
 const Details: React.FC<DetailsProps> = ({ data, content }) => {
 	const pathname = usePathname()
 
 	const [filter, setFilter] = useQueryState(
 		'filter',
-		parseAsString.withDefault(filters[0].value)
+		parseAsString.withDefault(content[0].uuid)
 	)
 	const selectedContent = content.find((item: any) => item.uuid === filter)
+
 	return (
 		<section className="p-6 mb-12">
 			<div className="flex gap-4 p-2 justify-start overflow-auto scrollbar-hide lg:justify-center">
-				{filters.map((item) => (
+				{content.map((item) => (
 					<button
-						key={item.value}
-						onClick={() => setFilter(item.value)}
+						key={item.uuid}
+						onClick={() => setFilter(item.uuid)}
 						className={`whitespace-nowrap rounded-3xl border-2 w-fit h-fit px-3 py-1 ${
-							filter === item.value ? 'bg-black text-white' : 'border-black'
+							filter === item.uuid ? 'bg-black text-white' : 'border-black'
 						}`}
 					>
-						{item.label}
+						{item.title}
 					</button>
 				))}
 			</div>

@@ -7,21 +7,25 @@ import { WorkTypes } from '@/types/work'
 const queries = ['work_img', 'capacity_media', 'details.image']
 
 export default async function Work() {
-	const workData: WorkTypes = await getStrapiData(`/work`, queries)
-	const maindata = workData.data.attributes
+	const workPageData: WorkTypes = await getStrapiData(`/work`, queries)
 
-	const strapiData: WorkCollection = await getStrapiData(`/work-collections`, [
-		'media',
-	])
-	const data = getSectorBasedWork(strapiData.data)
+	const collectionData: WorkCollection = await getStrapiData(
+		`/work-collections`,
+		['media']
+	)
+	const data = getSectorBasedWork(collectionData.data)
 
 	return (
 		<Suspense>
-			<WorkClient data={data} maindata={maindata} />
+			<WorkClient
+				collectionData={data}
+				pageData={workPageData.data.attributes}
+			/>
 		</Suspense>
 	)
 }
 
+// This function groups items based on their sectors.
 function getSectorBasedWork(data: WorkCollection['data']) {
 	const obj: {
 		[key: string]: WorkCollection['data']

@@ -1,6 +1,6 @@
 'use client'
 
-import Details from '@/components/Details/Details'
+import List from '@/components/Details/Details'
 import Image from 'next/image'
 
 import {
@@ -16,21 +16,22 @@ import { WorkCollection } from '@/types/work-collection'
 import Markdown from 'react-markdown'
 
 export function WorkClient({
-	data,
-	maindata,
+	collectionData,
+	pageData,
 }: {
-	data: {
+	collectionData: {
 		[key: string]: WorkCollection['data']
 	}
-	maindata: WorkTypes['data']['attributes']
+	pageData: WorkTypes['data']['attributes']
 }) {
 	return (
-		<div>
+		<main>
+			{/* Header */}
 			<section>
 				<div className="bg-light-green w-full">
 					<div className="flex justify-center flex-wrap items-center py-16 px-8 lg:p-10 gap-10 lg:gap-26 flex-grow">
 						<Image
-							src={getStrapiMediaUrl(maindata.work_img.data.attributes.url)}
+							src={getStrapiMediaUrl(pageData.work_img.data.attributes.url)}
 							width={600}
 							height={390}
 							className="object-contain"
@@ -38,20 +39,24 @@ export function WorkClient({
 						/>
 						<div className=" lg:max-w-lg">
 							<h2 className=" font-heading lg:text-2xl sm:text-lg text-center font-medium mb-3">
-								<Markdown>{maindata.work_desc}</Markdown>
+								<Markdown>{pageData.work_desc}</Markdown>
 							</h2>
 						</div>
 					</div>
 				</div>
 			</section>
-			<Details data={data} content={maindata.details} />
+
+			{/* Listing */}
+			<List data={collectionData} content={pageData.details} />
+
+			{/* Capacity building */}
 			<section className=" bg-light-green">
 				<div className=" container w-full lg:p-16 p-10 ">
 					<div>
 						<h2 className="font-heading font-extrabold text-2xl mb-3">
-							{maindata.capacity_title}
+							{pageData.capacity_title}
 						</h2>
-						<p className="text-xl">{maindata.capacity_desc}</p>
+						<p className="text-xl">{pageData.capacity_desc}</p>
 					</div>
 					<Carousel
 						opts={{
@@ -61,7 +66,7 @@ export function WorkClient({
 						className="w-full"
 					>
 						<CarouselContent className="-ml-1">
-							{maindata.capacity_media.data.map((item: any) => (
+							{pageData.capacity_media.data.map((item: any) => (
 								<CarouselItem
 									key={item.id}
 									className="pl-1 md:basis-1/2 lg:basis-1/5"
@@ -84,6 +89,6 @@ export function WorkClient({
 					</Carousel>
 				</div>
 			</section>
-		</div>
+		</main>
 	)
 }
