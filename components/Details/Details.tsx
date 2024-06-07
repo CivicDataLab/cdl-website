@@ -103,7 +103,7 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 							</a>
 						))
 					) : (
-						<div className="flex flex-col gap-2 justify-center items-center">
+						<div className="flex flex-col gap-2 items-center mt-10">
 							<RabbitIcon size={64} />
 							<p>No available data</p>
 						</div>

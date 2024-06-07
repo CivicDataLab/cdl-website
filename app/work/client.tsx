@@ -10,7 +10,7 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from '@/components/Carousel/Carousel'
-import { getStrapiData, getStrapiMediaUrl } from '@/lib/utils'
+import { getStrapiMediaUrl } from '@/lib/utils'
 import { WorkTypes } from '@/types/work'
 import { WorkCollection } from '@/types/work-collection'
 import Markdown from 'react-markdown'
