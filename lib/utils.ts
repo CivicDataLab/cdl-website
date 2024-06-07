@@ -12,9 +12,7 @@ export async function getStrapiData(url: string, queries?: string[]) {
 		: ''
 
 	try {
-		const response = await fetch(baseUrl + url + `?${query}`, {
-			cache: 'no-store',
-		})
+		const response = await fetch(baseUrl + url + `?${query}`)
 		const data = await response.json()
 		return data
 	} catch (error) {
