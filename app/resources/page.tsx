@@ -121,7 +121,6 @@ function Client() {
           </div>
         </div>
       </section>
-      <Details selected={selected} setSelected={setSelected} Data={ResourcesData} />
     </div>
   );
 }

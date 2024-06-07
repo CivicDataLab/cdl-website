@@ -1,26 +1,23 @@
-'use client'
+"use client";
 
-import React, { Suspense, useEffect, useState } from 'react'
-import Image from 'next/image'
-import Details from '@/components/Details/Details'
+import React, { Suspense, useEffect, useState } from "react";
+import Image from "next/image";
+import Details from "@/components/Details/Details";
 
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
-} from '@/components/Carousel/Carousel'
-import { WorkCollection } from '@/types/work-collection'
-
-export function WorkClient({
-	data,
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/Carousel/Carousel";
+import { WorkCollection } from "@/types/work-collection";
+import { getStrapiData, getStrapiMediaUrl } from "@/lib/utils";
+import { WorkTypes } from "@/types/work";
+import Markdown from "react-markdown";
+const queries = ["work_img", "capacity_media", "details.image"];
+export async function WorkClient({
+  data,
 }: {
-	data: {
-		[key: string]: WorkCollection['data']
-	}
+  data: {
+    [key: string]: WorkCollection["data"];
+  };
 }) {
-	return (
+return (
 		<div>
 			<section>
 				<div className="bg-light-green w-full">
