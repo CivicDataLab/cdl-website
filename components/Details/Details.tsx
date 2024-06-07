@@ -66,7 +66,7 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 			</div>
 			<div className="flex justify-center flex-wrap sm:flex-nowrap gap-14 mt-8 px-5">
 				{selectedContent && (
-					<div className="sm:max-w-52 sm:shrink-0 grow h-fit">
+					<div className="sm:max-w-52 sm:shrink-0 grow h-fit sm:sticky top-0">
 						{selectedContent.image.data && (
 							<Image
 								src={getStrapiMediaUrl(

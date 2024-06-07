@@ -21,7 +21,7 @@ export default async function Page({
 	return (
 		<main>
 			<div className="flex justify-center flex-wrap sm:flex-nowrap gap-14 px-5">
-				<div className="w-52 shrink-0 grow sticky top-0 h-fit">
+				<div className="w-52 shrink-0 grow sm:sticky top-0 h-fit">
 					<Image
 						src="/B2.jpg"
 						alt=""
