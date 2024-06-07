@@ -1,12 +1,23 @@
+import { getStrapiCollectionData, getStrapiMediaUrl } from '@/lib/utils'
+import { WorkCollection } from '@/types/work-collection'
 import Image from 'next/image'
+import Markdown from 'react-markdown'
 
-export default function Page({
+export default async function Page({
 	params,
-	searchParams,
 }: {
 	params: { slug: string }
 	searchParams: { [key: string]: string | string[] | undefined }
 }) {
+	const strapiData: WorkCollection = await getStrapiCollectionData({
+		url: '/work-collections',
+		slug: params.slug,
+		queries: ['media'],
+	})
+
+	const data = strapiData.data[0]
+	const { attributes, id } = data
+
 	return (
 		<main>
 			<div className="flex justify-center flex-wrap sm:flex-nowrap gap-14 px-5">
@@ -29,66 +40,54 @@ export default function Page({
 
 				<div className="grow">
 					<section className="bg-light-green w-full min-h-48 rounded-l-xl font-heading py-6 px-5">
-						<h1 className="font-extrabold text-2xl uppercase">PetaBencana</h1>
+						<h1 className="font-extrabold text-2xl uppercase">
+							{attributes.title}
+						</h1>
 						<p className="font-semibold text-lg mt-2 max-w-[420px]">
-							Open platform to facilitate crowd sourced disaster reported via
-							social media
+							{attributes.desc}
 						</p>
 						<Image
-							src="/event-sec3.1.png"
+							src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
 							width={840}
 							height={480}
 							alt=""
-							className="w-full mt-4"
+							className="w-full mt-4 object-cover h-96"
 						/>
 					</section>
 
 					<section className="mt-8 ml-6">
 						<Heading>Idea</Heading>
 						<div className="mt-4">
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-							Architecto inventore, molestiae hic nobis animi tenetur veniam
-							voluptates, itaque incidunt placeat dolorum repellat nostrum
-							doloremque debitis fuga, quasi delectus alias! Assumenda?
-							<br /> <br />
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, ut
-							neque laborum sit id illo ab. Sit consequatur repellat eum sequi
-							corporis sed at obcaecati magnam deleniti vel, impedit modi!
-							<br /> <br />
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, ut
-							neque laborum sit id illo ab. Sit consequatur repellat eum sequi
-							corporis sed at obcaecati magnam deleniti vel, impedit modi!
-							<br /> <br />
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, ut
-							neque laborum sit id illo ab. Sit consequatur repellat eum sequi
-							corporis sed at obcaecati magnam deleniti vel, impedit modi!
+							<Markdown className="flex flex-col gap-2">
+								{attributes.idea}
+							</Markdown>
 						</div>
 					</section>
 
 					<section className="mt-8 ml-6">
 						<Heading>Partner</Heading>
 						<div className="mt-2">
-							<a className="text-blue-500" href="#">
-								https://petabencana.id
-							</a>
+							<Markdown className="flex flex-col gap-2">
+								{attributes.partner}
+							</Markdown>
 						</div>
 					</section>
 
 					<section className="mt-8 ml-6">
 						<Heading>Project Report</Heading>
 						<div className="mt-2">
-							<a className="text-blue-500" href="#">
-								ProjectReport.pdf
-							</a>
+							<Markdown className="flex flex-col gap-2">
+								{attributes.project_report}
+							</Markdown>
 						</div>
 					</section>
 
 					<section className="mt-8 ml-6">
 						<Heading>Team</Heading>
 						<div className="mt-2">
-							<a className="text-blue-500" href="#">
-								Deepthi Chand
-							</a>
+							<Markdown className="flex flex-col gap-2">
+								{attributes.team}
+							</Markdown>
 						</div>
 					</section>
 				</div>
@@ -99,11 +98,9 @@ export default function Page({
 					<div className="hidden sm:block min-w-56"></div>
 					<div className="grow">
 						<Heading>Related Links</Heading>
-						<ul className="mt-4 flex flex-col gap-3 pl-3">
-							<li> - Explore the role of technology</li>
-							<li> - Risk Map projects supported by MIT</li>
-							<li> - Community informed sharing shapes</li>
-						</ul>
+						<Markdown className="mt-4 [&>ul]:list-disc [&>ul]:list-inside">
+							{attributes.related}
+						</Markdown>
 					</div>
 				</div>
 			</section>
