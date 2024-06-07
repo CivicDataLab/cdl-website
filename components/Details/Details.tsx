@@ -67,7 +67,7 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 							<a
 								href={`${pathname}/${attributes.slug}`}
 								key={id}
-								className="h-fit w-full"
+								className="h-fit w-full max-w-[524px]"
 							>
 								<Image
 									src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
