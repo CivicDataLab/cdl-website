@@ -20,8 +20,6 @@ export function WorkClient({
 		[key: string]: WorkCollection['data']
 	}
 }) {
-	console.log(data)
-
 	return (
 		<div>
 			<section>
