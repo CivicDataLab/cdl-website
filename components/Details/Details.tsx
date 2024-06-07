@@ -5,12 +5,13 @@ import { parseAsString, useQueryState } from 'nuqs'
 import { getStrapiMediaUrl } from '@/lib/utils'
 import { RabbitIcon } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+import { WorkTypes } from '@/types/work'
 
 interface DetailsProps {
 	data: {
 		[key: string]: WorkCollection['data']
 	}
-	content: any
+	content: WorkTypes['data']['attributes']['details']
 }
 
 const filters = [
@@ -48,7 +49,6 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 		parseAsString.withDefault(filters[0].value)
 	)
 	const selectedContent = content.find((item: any) => item.uuid === filter)
-
 	return (
 		<section className="p-6 mb-12">
 			<div className="flex gap-4 p-2 justify-start overflow-auto scrollbar-hide lg:justify-center">
@@ -70,7 +70,7 @@ const Details: React.FC<DetailsProps> = ({ data, content }) => {
 						{selectedContent.image.data && (
 							<Image
 								src={getStrapiMediaUrl(
-									selectedContent.image.data?.attributes.url
+									selectedContent.image.data.attributes.url
 								)}
 								alt=""
 								width={120}
