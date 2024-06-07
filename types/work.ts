@@ -1,4 +1,4 @@
-export interface Work {
+export interface WorkTypes {
   data: Data;
 }
 
@@ -17,7 +17,7 @@ interface Attributes {
 }
 
 interface Details {
-  uuid: number;
+  uuid: string;
   title: string;
   description: string;
   image: {
