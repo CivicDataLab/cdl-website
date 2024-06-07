@@ -28,6 +28,10 @@ export default async function Page({
 						width={120}
 						height={120}
 						className="mt-10"
+						style={{
+							width: '120px',
+							height: '120px',
+						}}
 					/>
 					<p className="font-heading text-2xl font-bold mt-4">Climate Action</p>
 					<p className="mt-3">
@@ -46,13 +50,19 @@ export default async function Page({
 						<p className="font-semibold text-lg mt-2 max-w-[420px]">
 							{attributes.desc}
 						</p>
-						<Image
-							src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
-							width={840}
-							height={480}
-							alt=""
-							className="w-full mt-4 object-cover h-96"
-						/>
+						<div className="h-96 overflow-clip">
+							<Image
+								src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
+								width={840}
+								height={480}
+								alt=""
+								className="w-full mt-4 object-cover"
+								style={{
+									width: 'full',
+									height: 'auto',
+								}}
+							/>
+						</div>
 					</section>
 
 					<section className="mt-8 ml-6">

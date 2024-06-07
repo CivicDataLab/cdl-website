@@ -38,6 +38,10 @@ export default async function Home() {
 						width={220}
 						height={466}
 						className="object-contain"
+						style={{
+							width: '220px',
+							height: '466px',
+						}}
 					/>
 
 					<div className="flex flex-col gap-4 font-heading min-h-[124px]">
@@ -72,6 +76,10 @@ export default async function Home() {
 								alt=""
 								width={150}
 								height={150}
+								style={{
+									width: '150px',
+									height: '150px',
+								}}
 							/>
 							<span className="max-w-56 text-center text-2xl">
 								{item.title}
@@ -154,6 +162,10 @@ export default async function Home() {
 								alt=""
 								width={150}
 								height={150}
+								style={{
+									width: '150px',
+									height: '150px',
+								}}
 							/>
 							<h3 className="max-w-56 uppercase font-heading font-bold text-xl">
 								{card.title}
@@ -197,6 +209,10 @@ export default async function Home() {
 											alt=""
 											width={150}
 											height={150}
+											style={{
+												width: '150px',
+												height: '150px',
+											}}
 										/>
 									</div>
 								</div>
@@ -234,6 +250,10 @@ export default async function Home() {
 												alt=""
 												width={150}
 												height={150}
+												style={{
+													width: '150px',
+													height: '150px',
+												}}
 											/>
 										</div>
 									</div>

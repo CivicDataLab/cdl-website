@@ -21,6 +21,10 @@ const collaborate = async () => {
 							height={376}
 							className="object-contain"
 							alt="civicdatalab logo"
+							style={{
+								width: '420px',
+								height: '376px',
+							}}
 						/>
 						<div className=" lg:max-w-md">
 							<h2 className=" font-heading text-2xl font-extrabold mb-3">
@@ -47,6 +51,10 @@ const collaborate = async () => {
 							height={360}
 							className="object-contain"
 							alt="civicdatalab logo"
+							style={{
+								width: '520px',
+								height: '360px',
+							}}
 						/>
 					</div>
 				</div>
@@ -67,6 +75,10 @@ const collaborate = async () => {
 							height={360}
 							className="object-contain"
 							alt="civicdatalab logo"
+							style={{
+								width: '520px',
+								height: '360px',
+							}}
 						/>
 					</div>
 				</div>

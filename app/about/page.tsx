@@ -54,6 +54,11 @@ export default async function AboutPage() {
 									alt=""
 									width={120}
 									height={120}
+									className="object-contain"
+									style={{
+										width: '120px',
+										height: '120px',
+									}}
 								/>
 								<span className="max-w-56 text-center text-xl">
 									{item.title}
@@ -89,6 +94,10 @@ export default async function AboutPage() {
 						width={700}
 						height={470}
 						className="object-contain"
+						style={{
+							width: '700px',
+							height: '470px',
+						}}
 					/>
 				</div>
 			</section>
@@ -162,6 +171,10 @@ export default async function AboutPage() {
 					width={640}
 					height={740}
 					className="object-contain hidden lg:block"
+					style={{
+						width: '640px',
+						height: '740px',
+					}}
 				/>
 			</section>
 
@@ -182,6 +195,10 @@ export default async function AboutPage() {
 									width={100}
 									height={200}
 									className="object-contain"
+									style={{
+										width: '100px',
+										height: '200px',
+									}}
 								/>
 								<div className="flex flex-col mb-10 max-w-48 font-heading">
 									<span className="text-xl font-bold">

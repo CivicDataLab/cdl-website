@@ -42,15 +42,19 @@ export const Navbar = () => {
 
 	return (
 		<nav className="flex items-center justify-end pt-1 px-6">
-			<div className="bg-on-bg rounded-full p-6 absolute -top-3 -left-2">
+			<a href="/" className="bg-on-bg rounded-full p-6 absolute -top-3 -left-2">
 				<Image
 					src="/logo.png"
 					width={70}
 					height={76}
+					style={{
+						width: '70px',
+						height: '76px',
+					}}
 					className="object-contain"
 					alt="civicdatalab logo"
 				/>
-			</div>
+			</a>
 			<ul className="flex justify-between space-x-3 mt-3 font-medium">
 				{links.map((link) => (
 					<Item
