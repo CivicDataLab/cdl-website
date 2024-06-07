@@ -5,20 +5,11 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 
-const queries = [
-	'offer_items.icon',
-	'offer_link',
-	'data_items',
-	'about_link',
-	'focus_card.icon',
-	'focus_card.link',
-	'partner_items',
-	'team_items',
-]
-
-export async function getStrapiData(url: string) {
+export async function getStrapiData(url: string, queries?: string[]) {
 	const baseUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL
-	const query = queries.map((q, idx) => `populate[${idx}]=${q}`).join('&')
+	const query = queries
+		? queries.map((q, idx) => `populate[${idx}]=${q}`).join('&')
+		: ''
 
 	try {
 		const response = await fetch(baseUrl + url + `?${query}`, {
@@ -29,4 +20,8 @@ export async function getStrapiData(url: string) {
 	} catch (error) {
 		console.error(error)
 	}
+}
+
+export function getStrapiMediaUrl(url: string) {
+	return process.env.NEXT_PUBLIC_STRAPI_URL + url
 }

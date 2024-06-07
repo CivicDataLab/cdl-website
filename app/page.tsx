@@ -7,13 +7,24 @@ import {
 } from '@/components/Carousel/Carousel'
 import { Globe } from '@/components/Globe'
 import { Typed } from '@/components/Typed'
-import { getStrapiData } from '@/lib/utils'
+import { getStrapiData, getStrapiMediaUrl } from '@/lib/utils'
 import { Homepage } from '@/types/homepage'
 import Image from 'next/image'
 import Markdown from 'react-markdown'
 
+const queries = [
+	'offer_items.icon',
+	'offer_link',
+	'data_items',
+	'about_link',
+	'focus_card.icon',
+	'focus_card.link',
+	'partner_items',
+	'team_items',
+]
+
 export default async function Home() {
-	const strapiData: Homepage = await getStrapiData(`/homepage`)
+	const strapiData: Homepage = await getStrapiData(`/homepage`, queries)
 	const data = strapiData.data.attributes
 
 	return (
@@ -53,16 +64,18 @@ export default async function Home() {
 					<Markdown>{data.offer_desc}</Markdown>
 				</div>
 
-				<div className="flex gap-4 flex-wrap uppercase mt-8 text-2xl font-medium justify-evenly">
+				<div className="flex gap-4 flex-wrap uppercase mt-8 font-medium justify-evenly">
 					{data.offer_items.map((item) => (
 						<div key={item.id} className="flex flex-col gap-4 items-center">
 							<Image
-								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.icon.data.attributes.url}`}
+								src={getStrapiMediaUrl(item.icon.data.attributes.url)}
 								alt=""
 								width={150}
 								height={150}
 							/>
-							<span className="max-w-56 text-center">{item.title}</span>
+							<span className="max-w-56 text-center text-2xl">
+								{item.title}
+							</span>
 						</div>
 					))}
 				</div>
@@ -137,7 +150,7 @@ export default async function Home() {
 					{data.focus_card.map((card) => (
 						<div key={card.id} className="flex flex-col gap-4">
 							<Image
-								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${card.icon.data.attributes.url}`}
+								src={getStrapiMediaUrl(card.icon.data.attributes.url)}
 								alt=""
 								width={150}
 								height={150}
@@ -180,7 +193,7 @@ export default async function Home() {
 								<div className="p-1">
 									<div className="flex aspect-square items-center justify-center p-6">
 										<Image
-											src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.attributes.url}`}
+											src={getStrapiMediaUrl(item.attributes.url)}
 											alt=""
 											width={150}
 											height={150}
@@ -217,7 +230,7 @@ export default async function Home() {
 									<div className="p-1">
 										<div className="flex aspect-square items-center justify-center p-6">
 											<Image
-												src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.attributes.url}`}
+												src={getStrapiMediaUrl(item.attributes.url)}
 												alt=""
 												width={150}
 												height={150}
