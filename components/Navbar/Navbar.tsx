@@ -57,7 +57,7 @@ export const Navbar = () => {
 						key={link.name}
 						href={link.href}
 						color={link.color}
-						active={pathname === link.href}
+						active={pathname.split('/')[1] === link.href.split('/')[1]}
 					>
 						{link.name}
 					</Item>

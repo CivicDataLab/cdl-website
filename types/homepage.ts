@@ -34,7 +34,7 @@ type ImageFormat = {
 	url: string
 }
 
-type Image = {
+export type Image = {
 	id: number
 	attributes: {
 		name: string
