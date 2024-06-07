@@ -2,19 +2,22 @@ import { Suspense } from 'react'
 import { WorkClient } from './client'
 import { WorkCollection } from '@/types/work-collection'
 import { getStrapiData } from '@/lib/utils'
+import { WorkTypes } from '@/types/work'
 
-const queries = ['media']
+const queries = ['work_img', 'capacity_media', 'details.image']
 
 export default async function Work() {
-	const strapiData: WorkCollection = await getStrapiData(
-		`/work-collections`,
-		queries
-	)
+	const workData: WorkTypes = await getStrapiData(`/work`, queries)
+	const maindata = workData.data.attributes
+
+	const strapiData: WorkCollection = await getStrapiData(`/work-collections`, [
+		'media',
+	])
 	const data = getSectorBasedWork(strapiData.data)
 
 	return (
 		<Suspense>
-			<WorkClient data={data} />
+			<WorkClient data={data} maindata={maindata} />
 		</Suspense>
 	)
 }

@@ -15,17 +15,15 @@ import { WorkTypes } from '@/types/work'
 import { WorkCollection } from '@/types/work-collection'
 import Markdown from 'react-markdown'
 
-const queries = ['work_img', 'capacity_media', 'details.image']
-export async function WorkClient({
+export function WorkClient({
 	data,
+	maindata,
 }: {
 	data: {
 		[key: string]: WorkCollection['data']
 	}
+	maindata: WorkTypes['data']['attributes']
 }) {
-	const strapiData: WorkTypes = await getStrapiData(`/work`, queries)
-	const maindata = strapiData.data.attributes
-
 	return (
 		<div>
 			<section>
