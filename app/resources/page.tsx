@@ -1,9 +1,19 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import Details from "@/components/Details/Details";
+import { parseAsString, useQueryState } from "nuqs";
 
-const Resources = () => {
+export default function Resources() {
+  return (
+    <Suspense>
+      <Client />
+    </Suspense>
+  );
+}
+
+function Client() {
   const ResourcesData = [
     {
       name: "Dashboard/Tools",
@@ -73,7 +83,23 @@ const Resources = () => {
     },
   ];
 
-  const [selected, setSelected] = useState(ResourcesData[0]);
+  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault("Dashboard/Tools"));
+  const [selected, setSelected] = useState(() => {
+    return ResourcesData.find((item) => item.name === filter) || ResourcesData[0];
+  });
+
+  useEffect(() => {
+    const found = ResourcesData.find((item) => item.name === filter);
+    if (found) {
+      setSelected(found);
+    }
+  }, [filter]);
+
+  useEffect(() => {
+    if (selected.name !== filter) {
+      setFilter(selected.name);
+    }
+  }, [selected]);
 
   return (
     <div>
@@ -98,6 +124,4 @@ const Resources = () => {
       <Details selected={selected} setSelected={setSelected} Data={ResourcesData} />
     </div>
   );
-};
-
-export default Resources;
+}

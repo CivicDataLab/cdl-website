@@ -1,12 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import Details from "@/components/Details/Details";
+import { parseAsString, useQueryState } from "nuqs";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/Carousel/Carousel";
 
-const Work = () => {
+export default function Work() {
+  return (
+    <Suspense>
+      <Client />
+    </Suspense>
+  );
+}
+
+function Client() {
   const WorkData = [
     {
       name: "DPGs",
@@ -96,19 +105,25 @@ const Work = () => {
         },
       ],
     },
-    {
-      name: " Urban Development",
-      desc: "Access our comprehensive reports that provide detailed analysis and findings.",
-      res: [
-        {
-          name: "Disaster Reporting Platform: Indonesia",
-          img: "/event-sec2.3.png",
-        },
-      ],
-    },
   ];
+  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault("DPGs"));
+  const [selected, setSelected] = useState(() => {
+    return WorkData.find((item) => item.name === filter) || WorkData[0];
+  });
 
-  const [selected, setSelected] = useState(WorkData[0]);
+  useEffect(() => {
+    const found = WorkData.find((item) => item.name === filter);
+    if (found) {
+      setSelected(found);
+    }
+  }, [filter]);
+
+  useEffect(() => {
+    if (selected.name !== filter) {
+      setFilter(selected.name);
+    }
+  }, [selected]);
+
   return (
     <div>
       {" "}
@@ -162,6 +177,4 @@ const Work = () => {
       </section>
     </div>
   );
-};
-
-export default Work;
+}
