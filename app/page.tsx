@@ -31,13 +31,13 @@ export default async function Home() {
 		<main>
 			{/* Header */}
 			<section className="bg-light-blue py-4 w-full">
-				<div className="container flex gap-6 items-center justify-center">
+				<div className="container flex gap-6 items-center justify-center py-20 sm:py-0">
 					<Image
 						src="/seed.png"
 						alt=""
 						width={220}
 						height={466}
-						className="object-contain"
+						className="object-contain hidden sm:block"
 						style={{
 							width: '220px',
 							height: '466px',
@@ -45,7 +45,7 @@ export default async function Home() {
 					/>
 
 					<div className="flex flex-col gap-4 font-heading min-h-[124px]">
-						<h1 className="text-3xl text-center font-medium">
+						<h1 className="text-2xl sm:text-3xl text-center font-medium">
 							<Markdown>{data.heading}</Markdown>
 
 							<span className="sr-only">
@@ -53,7 +53,7 @@ export default async function Home() {
 							</span>
 						</h1>
 
-						<div className="text-3xl text-center text-dark-blue font-bold">
+						<div className="text-2xl sm:text-3xl text-center text-dark-blue font-bold">
 							<Typed list={['DATA', 'TECH', 'DESIGN', 'SOCIAL SCIENCE']} />
 						</div>
 					</div>
@@ -213,6 +213,7 @@ export default async function Home() {
 												width: '150px',
 												height: '150px',
 											}}
+											className="object-contain"
 										/>
 									</div>
 								</div>
@@ -254,6 +255,7 @@ export default async function Home() {
 													width: '150px',
 													height: '150px',
 												}}
+												className="object-contain"
 											/>
 										</div>
 									</div>

@@ -21,7 +21,7 @@ const socialLinks = [
 export const Footer = () => {
 	return (
 		<footer className="text-on-bg bg-dark">
-			<div className="flex items-center justify-between py-8 container">
+			<div className="flex items-center justify-between flex-wrap gap-8 py-8 container">
 				<div className="flex items-center gap-8">
 					<a href="/">
 						<Image
