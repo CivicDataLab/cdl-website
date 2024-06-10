@@ -1,17 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import { WorkCollection } from "@/types/work-collection";
 import { parseAsString, useQueryState } from "nuqs";
 import { getStrapiMediaUrl } from "@/lib/utils";
 import { RabbitIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { ResourceTypes } from "@/types/resource";
+import { WorkTypes } from "@/types/work";
+import { WorkCollection } from "@/types/work-collection";
 
 interface DetailsProps {
   data?: {
     [key: string]: WorkCollection["data"];
   };
-  content: ResourceTypes["data"]["attributes"]["details"];
+  content: WorkTypes["data"]["attributes"]["details"];
   isResource?: Boolean;
 }
 
