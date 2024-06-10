@@ -58,6 +58,8 @@ export function EventClient({
   };
   pageData: EventTypes["data"]["attributes"];
 }) {
+  const items = pageData.description?.split("\n").filter((item) => item.trim() !== "") || [];
+
   return (
     <main>
       {/* Header */}
@@ -76,9 +78,17 @@ export function EventClient({
               alt="book logo"
             />
             <div className=" lg:max-w-lg">
-              <h2 className=" font-heading lg:text-2xl sm:text-lg text-center font-medium mb-3">
-                <Markdown>{pageData.description}</Markdown>
-              </h2>
+              <Markdown className={"text-dark-blue font-heading text-2xl font-bold mb-3"}>{pageData.heading_title}</Markdown>
+              <div>
+                <p className="text-xl">{items.length > 0 ? items[0] : ""}</p>
+                <ul className="list-disc ml-12 marker:text-dark-blue">
+                  {items.slice(1).map((item, index) => (
+                    <li key={index} className="text-xl">
+                      {item.startsWith("- ") ? item.slice(2) : item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
