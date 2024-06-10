@@ -41,21 +41,20 @@ export const Navbar = () => {
 	const pathname = usePathname()
 
 	return (
-		<nav className="flex items-center justify-end pt-1 px-6">
-			<a href="/" className="bg-on-bg rounded-full p-6 absolute -top-3 -left-2">
+		<nav className="flex items-center justify-end px-6">
+			<a
+				href="/"
+				className="bg-on-bg rounded-full p-3 md:p-6 absolute -top-3 -left-2"
+			>
 				<Image
 					src="/logo.png"
-					width={70}
-					height={76}
-					style={{
-						width: '70px',
-						height: '76px',
-					}}
-					className="object-contain"
+					width={80}
+					height={80}
+					className="object-contain w-16 h-16 md:w-20 md:h-20"
 					alt="civicdatalab logo"
 				/>
 			</a>
-			<ul className="flex justify-between space-x-3 mt-3 font-medium">
+			<ul className="flex justify-between space-x-3 mt-3 font-medium overflow-x-auto pl-16 text-sm md:text-base">
 				{links.map((link) => (
 					<Item
 						key={link.name}
