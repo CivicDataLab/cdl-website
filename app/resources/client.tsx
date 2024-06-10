@@ -3,7 +3,7 @@
 import Details from "@/components/Details/Details";
 import { getStrapiMediaUrl } from "@/lib/utils";
 import { ResourceTypes } from "@/types/resource";
-import { WorkCollection } from "@/types/work-collection";
+import { Collection } from "@/types/collection";
 import Image from "next/image";
 import React from "react";
 import Markdown from "react-markdown";
@@ -11,7 +11,7 @@ import Markdown from "react-markdown";
 interface ResourceProps {
   strapiData: ResourceTypes;
   collectionData: {
-    [key: string]: WorkCollection["data"];
+    [key: string]: Collection["data"];
   };
 }
 

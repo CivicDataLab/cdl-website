@@ -1,6 +1,6 @@
 import { Image } from "./homepage";
 
-export interface WorkCollection {
+export interface Collection {
   data: Data[];
   meta: Meta;
 }

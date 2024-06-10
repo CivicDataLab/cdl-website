@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { getStrapiMediaUrl } from "@/lib/utils";
 import { EventTypes } from "@/types/event";
-import { WorkCollection } from "@/types/work-collection";
+import { Collection } from "@/types/collection";
 import Markdown from "react-markdown";
 interface ParticipationSection {
   title: string;
@@ -54,7 +54,7 @@ export function EventClient({
   pageData,
 }: {
   collectionData: {
-    [key: string]: WorkCollection["data"];
+    [key: string]: Collection["data"];
   };
   pageData: EventTypes["data"]["attributes"];
 }) {

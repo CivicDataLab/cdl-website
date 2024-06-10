@@ -5,11 +5,11 @@ import { getStrapiMediaUrl } from "@/lib/utils";
 import { RabbitIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { WorkTypes } from "@/types/work";
-import { WorkCollection } from "@/types/work-collection";
+import { Collection } from "@/types/collection";
 
 interface DetailsProps {
   data?: {
-    [key: string]: WorkCollection["data"];
+    [key: string]: Collection["data"];
   };
   content: WorkTypes["data"]["attributes"]["details"];
   isResource?: Boolean;

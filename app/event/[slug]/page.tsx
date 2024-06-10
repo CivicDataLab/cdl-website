@@ -1,10 +1,10 @@
 import { getStrapiCollectionData, getStrapiMediaUrl } from "@/lib/utils";
-import { WorkCollection } from "@/types/work-collection";
+import { Collection } from "@/types/collection";
 import Image from "next/image";
 import Markdown from "react-markdown";
 
 export default async function Page({ params }: { params: { slug: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
-  const strapiData: WorkCollection = await getStrapiCollectionData({
+  const strapiData: Collection = await getStrapiCollectionData({
     url: "/event-collections",
     slug: params.slug,
     queries: ["media"],
