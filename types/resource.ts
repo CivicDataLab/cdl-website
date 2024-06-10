@@ -1,4 +1,4 @@
-export interface WorkTypes {
+export interface ResourceTypes {
   data: Data;
 }
 
@@ -8,12 +8,10 @@ interface Data {
 }
 
 interface Attributes {
-  work_img: Image;
-  work_desc: string;
-  capacity_title: String;
-  capacity_desc: string;
-  capacity_media: { data: Image[] };
+  description: string;
+  heading_title: string;
   details: Details[];
+  image: Image;
 }
 
 interface Details {
@@ -23,6 +21,7 @@ interface Details {
   image: Image;
   resources: Resources[];
 }
+
 interface Resources {
   uuid: string;
   title: string;

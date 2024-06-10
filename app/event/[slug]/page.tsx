@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 
 export default async function Page({ params }: { params: { slug: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
   const strapiData: Collection = await getStrapiCollectionData({
-    url: "/work-collections",
+    url: "/event-collections",
     slug: params.slug,
     queries: ["media"],
   });

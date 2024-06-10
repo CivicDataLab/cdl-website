@@ -1,4 +1,4 @@
-export interface WorkTypes {
+export interface EventTypes {
   data: Data;
 }
 
@@ -8,12 +8,13 @@ interface Data {
 }
 
 interface Attributes {
-  work_img: Image;
-  work_desc: string;
-  capacity_title: String;
-  capacity_desc: string;
-  capacity_media: { data: Image[] };
+  image: Image;
+  heading_title: string;
+  description: string;
+  event_participation_title: string;
+  event_participation_description: string;
   details: Details[];
+  event_details: EventDetails[];
 }
 
 interface Details {
@@ -28,6 +29,14 @@ interface Resources {
   title: string;
   link: string;
   image: Image;
+}
+
+interface EventDetails {
+  event_title: string;
+  event_date: string;
+  event_place: string;
+  event_partner: Image;
+  event_image: Image;
 }
 
 type ImageFormat = {
