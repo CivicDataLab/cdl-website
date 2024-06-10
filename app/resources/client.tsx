@@ -3,15 +3,19 @@
 import Details from "@/components/Details/Details";
 import { getStrapiMediaUrl } from "@/lib/utils";
 import { ResourceTypes } from "@/types/resource";
+import { WorkCollection } from "@/types/work-collection";
 import Image from "next/image";
 import React from "react";
 import Markdown from "react-markdown";
 
 interface ResourceProps {
   strapiData: ResourceTypes;
+  collectionData: {
+    [key: string]: WorkCollection["data"];
+  };
 }
 
-const ResourcePage: React.FC<ResourceProps> = ({ strapiData }) => {
+const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) => {
   const items = strapiData.data?.attributes?.description?.split("\n").filter((item) => item.trim() !== "") || [];
 
   return (
@@ -47,7 +51,7 @@ const ResourcePage: React.FC<ResourceProps> = ({ strapiData }) => {
           </div>
         </div>
       </section>
-      <Details content={strapiData.data?.attributes?.details} isResource={true} />
+      <Details content={strapiData.data?.attributes?.details} data={collectionData} isResource={true} />
     </div>
   );
 };

@@ -17,7 +17,6 @@ interface DetailsProps {
 
 const Details: React.FC<DetailsProps> = ({ data = {}, content, isResource }) => {
   const pathname = usePathname();
-
   const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(content[0].uuid));
   const selectedContent = content.find((item: any) => item.uuid === filter);
 
@@ -55,11 +54,16 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content, isResource }) => 
             <p className="mt-3">{selectedContent.description}</p>
           </div>
         )}
-        {!isResource ? (
+        {
           <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] grow">
             {data && data[filter] && data[filter].length > 0 ? (
               data[filter].map(({ id, attributes }) => (
-                <a href={`${pathname}/${attributes.slug}`} key={id} className="h-fit w-full max-w-[524px]">
+                <a
+                  href={isResource ? `${attributes.link}` : `${pathname}/${attributes.slug}`}
+                  target={isResource && "_blank"}
+                  key={id}
+                  className="h-fit w-full max-w-[524px]"
+                >
                   <Image
                     src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
                     width={524}
@@ -81,34 +85,7 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content, isResource }) => 
               </div>
             )}
           </div>
-        ) : (
-          <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] grow">
-            {selectedContent?.resources?.map((details: any, index: any) => (
-              <a href={details.link} target="_blank" key={index} rel="noopener noreferrer" className="h-fit w-full max-w-[524px]">
-                {details.image?.data?.attributes?.url && (
-                  <Image
-                    src={getStrapiMediaUrl(details.image.data.attributes.url)}
-                    width={524}
-                    height={300}
-                    className="object-contain"
-                    alt={details.title}
-                    style={{
-                      width: "524px",
-                      height: "300px",
-                    }}
-                  />
-                )}
-                <p className="text-xl font-bold mt-4">{details.title}</p>
-              </a>
-            ))}
-            {(!selectedContent?.resources || selectedContent.resources.length === 0) && (
-              <div className="flex flex-col gap-2 items-center mt-10">
-                <RabbitIcon size={64} />
-                <p>No available data</p>
-              </div>
-            )}
-          </div>
-        )}
+        }
       </div>
     </section>
   );
