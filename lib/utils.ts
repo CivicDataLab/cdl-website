@@ -12,7 +12,9 @@ export async function getStrapiData(url: string, queries?: string[]) {
 		: ''
 
 	try {
-		const response = await fetch(baseUrl + url + `?${query}`)
+		const response = await fetch(baseUrl + url + `?${query}`, {
+			cache: 'no-cache',
+		})
 		const data = await response.json()
 		return data
 	} catch (error) {
@@ -36,7 +38,10 @@ export async function getStrapiCollectionData({
 
 	try {
 		const response = await fetch(
-			baseUrl + url + `?${query}&filters[slug][$eq]=${slug}`
+			baseUrl + url + `?${query}&filters[slug][$eq]=${slug}`,
+			{
+				cache: 'no-cache',
+			}
 		)
 		const data = await response.json()
 		return data
