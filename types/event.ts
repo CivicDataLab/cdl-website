@@ -15,6 +15,13 @@ interface Attributes {
   event_participation_description: string;
   details: Details[];
   event_details: EventDetails[];
+  participation_link: Link;
+}
+
+interface Link {
+  id: number;
+  title: string;
+  url: string;
 }
 
 interface Details {

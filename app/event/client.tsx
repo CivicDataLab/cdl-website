@@ -116,8 +116,8 @@ export function EventClient({
           ))}
 
           <div className="container">
-            <a href="#" className="mt-8 inline-block font-extrabold text-lg">
-              Know More &gt;&gt;
+            <a href={pageData.participation_link.url} className="mt-8 inline-block font-medium text-lg">
+              {pageData.participation_link.title}
             </a>
           </div>
         </div>
