@@ -4,11 +4,14 @@ import React from 'react'
 import { toast } from 'sonner'
 
 export const SubscribeForm = () => {
+	const [loading, setLoading] = React.useState(false)
+
 	const nameRef = React.useRef<HTMLInputElement>(null)
 	const emailRef = React.useRef<HTMLInputElement>(null)
 
 	const subscribeUser = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
+		setLoading(true)
 
 		if (emailRef.current?.value && nameRef.current?.value) {
 			const res = await fetch('/api/subscribe', {
@@ -29,6 +32,7 @@ export const SubscribeForm = () => {
 			} else {
 				toast.error('Failed to subscribe')
 			}
+			setLoading(false)
 		}
 	}
 
@@ -48,6 +52,7 @@ export const SubscribeForm = () => {
 					required
 					autoCapitalize="off"
 					autoCorrect="off"
+					disabled={loading}
 				/>
 			</div>
 
@@ -62,13 +67,15 @@ export const SubscribeForm = () => {
 					required
 					autoCapitalize="off"
 					autoCorrect="off"
+					disabled={loading}
 				/>
 			</div>
 			<button
 				type="submit"
+				disabled={loading}
 				className="bg-dark-blue text-white font-medium px-4 py-2 rounded-md"
 			>
-				Subscribe
+				{loading ? 'Subscribing...' : 'Subscribe'}
 			</button>
 		</form>
 	)
