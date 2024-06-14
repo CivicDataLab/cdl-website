@@ -6,6 +6,7 @@ import {
 	CarouselPrevious,
 } from '@/components/Carousel/Carousel'
 import { Globe } from '@/components/Globe'
+import { SubscribeForm } from '@/components/Subscribe'
 import { Typed } from '@/components/Typed'
 import { getStrapiData, getStrapiMediaUrl } from '@/lib/utils'
 import { Homepage } from '@/types/homepage'
@@ -265,6 +266,15 @@ export default async function Home() {
 						<CarouselPrevious />
 						<CarouselNext />
 					</Carousel>
+				</div>
+			</section>
+
+			{/* Subscribe */}
+			<section>
+				<div className="container py-16">
+					<Heading>Subscribe</Heading>
+
+					<SubscribeForm />
 				</div>
 			</section>
 		</main>
