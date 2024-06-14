@@ -272,7 +272,7 @@ export default async function Home() {
 			{/* Subscribe */}
 			<section>
 				<div className="container py-16">
-					<Heading>Subscribe</Heading>
+					<Heading>Subscribe to our Newsletter</Heading>
 
 					<SubscribeForm />
 				</div>

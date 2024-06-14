@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar/Navbar'
 import type { Metadata } from 'next'
 import { Mukta, Montserrat } from 'next/font/google'
 import './globals.css'
+import { Toaster } from '@/components/Toast/Toast'
 
 const mukta = Mukta({
 	weight: ['400', '500'],
@@ -34,6 +35,7 @@ export default function RootLayout({
 				<Navbar />
 				{children}
 				<Footer />
+				<Toaster closeButton richColors />
 			</body>
 		</html>
 	)
