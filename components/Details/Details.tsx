@@ -11,13 +11,12 @@ interface DetailsProps {
   data?: {
     [key: string]: Collection["data"];
   };
-  content: WorkTypes["data"]["attributes"]["details"];
-  isResource?: Boolean;
+  content?: WorkTypes["data"]["attributes"]["initiative"];
 }
 
-const Details: React.FC<DetailsProps> = ({ data = {}, content, isResource }) => {
+const Details: React.FC<DetailsProps> = ({ data = {}, content = [] }) => {
   const pathname = usePathname();
-  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(content[0].uuid));
+  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(content[0]?.uuid));
   const selectedContent = content.find((item: any) => item.uuid === filter);
 
   return (
@@ -58,12 +57,7 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content, isResource }) => 
           <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] grow">
             {data && data[filter] && data[filter].length > 0 ? (
               data[filter].map(({ id, attributes }) => (
-                <a
-                  href={isResource ? `${attributes.link}` : `${pathname}/${attributes.slug}`}
-                  target={isResource && "_blank"}
-                  key={id}
-                  className="h-fit w-full max-w-[524px]"
-                >
+                <a href={`${pathname}/${attributes.slug}`} key={id} className="h-fit w-full max-w-[524px]">
                   <Image
                     src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
                     width={524}

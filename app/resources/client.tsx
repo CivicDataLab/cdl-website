@@ -7,6 +7,7 @@ import { Collection } from "@/types/collection";
 import Image from "next/image";
 import React from "react";
 import Markdown from "react-markdown";
+import ResourceDetails from "@/components/ResourceDetails/ResourceDetails";
 
 interface ResourceProps {
   strapiData: ResourceTypes;
@@ -51,7 +52,7 @@ const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) =
           </div>
         </div>
       </section>
-      <Details content={strapiData.data?.attributes?.details} data={collectionData} isResource={true} />
+      <ResourceDetails content={strapiData.data?.attributes?.type} data={collectionData} />
     </div>
   );
 };

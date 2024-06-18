@@ -95,7 +95,7 @@ export function EventClient({
       </section>
 
       {/* Listing */}
-      <List data={collectionData} content={pageData.details} />
+      <List data={collectionData} content={pageData.initiative} />
       <section>
         <div className="bg-light-green w-full lg:p-20 p-10 ">
           <div className="container">

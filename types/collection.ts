@@ -18,7 +18,8 @@ interface Attributes {
   project_report: string;
   team: string;
   related: string;
-  sector: string;
+  initiative: string;
+  type: string;
   createdAt: Date;
   updatedAt: Date;
   publishedAt: Date;

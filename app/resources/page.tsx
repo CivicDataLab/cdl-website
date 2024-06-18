@@ -4,13 +4,14 @@ import ResourcePage from "./client";
 import { Suspense } from "react";
 import { Collection } from "@/types/collection";
 
-const queries = ["image", "details", "details.resources.image"];
+const queries = ["image", "type", "type.resources.image", "type.image"];
 
 export default async function Resource() {
   const strapiData: ResourceTypes = await getStrapiData(`/resource`, queries);
 
   const collectionData: Collection = await getStrapiData(`/resource-collections`, ["media"]);
   const data = getSectorBasedWork(collectionData.data);
+
   return (
     <Suspense>
       <ResourcePage strapiData={strapiData} collectionData={data} />
@@ -23,11 +24,11 @@ function getSectorBasedWork(data: Collection["data"]) {
     [key: string]: Collection["data"];
   } = {};
   data.forEach((item) => {
-    const { sector } = item.attributes;
-    if (!obj[sector]) {
-      obj[sector] = [];
+    const { type } = item.attributes;
+    if (!obj[type]) {
+      obj[type] = [];
     }
-    obj[sector].push(item);
+    obj[type].push(item);
   });
 
   return obj;

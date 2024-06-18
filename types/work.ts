@@ -13,7 +13,7 @@ interface Attributes {
   capacity_title: String;
   capacity_desc: string;
   capacity_media: { data: Image[] };
-  details: Details[];
+  initiative: Details[];
 }
 
 interface Details {

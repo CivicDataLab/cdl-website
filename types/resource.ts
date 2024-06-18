@@ -10,11 +10,11 @@ interface Data {
 interface Attributes {
   description: string;
   heading_title: string;
-  details: Details[];
+  type: Type[];
   image: Image;
 }
 
-interface Details {
+interface Type {
   uuid: string;
   title: string;
   description: string;

@@ -4,7 +4,7 @@ import { getStrapiData } from "@/lib/utils";
 import { EventTypes } from "@/types/event";
 import { EventClient } from "./client";
 
-const queries = ["image", "event_details.event_image", "participation_link", "event_details.event_partner", "details.image"];
+const queries = ["image", "event_details.event_image", "participation_link", "event_details.event_partner", "initiative.image"];
 
 export default async function Work() {
   const workPageData: EventTypes = await getStrapiData(`/event`, queries);
@@ -25,11 +25,11 @@ function getSectorBasedWork(data: Collection["data"]) {
     [key: string]: Collection["data"];
   } = {};
   data.forEach((item) => {
-    const { sector } = item.attributes;
-    if (!obj[sector]) {
-      obj[sector] = [];
+    const { initiative } = item.attributes;
+    if (!obj[initiative]) {
+      obj[initiative] = [];
     }
-    obj[sector].push(item);
+    obj[initiative].push(item);
   });
 
   return obj;
