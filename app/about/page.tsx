@@ -46,6 +46,9 @@ export default async function AboutPage() {
 
 	const data = strapiData.data.attributes
 	const teamData = strapiTeamData.data
+	const nameSortedTeamData = teamData.sort((a, b) => {
+		return a.attributes.name.localeCompare(b.attributes.name)
+	})
 
 	return (
 		<main>
@@ -193,7 +196,7 @@ export default async function AboutPage() {
 					</div>
 
 					<div className="grid gap-10 grid-cols-[repeat(auto-fit,minmax(min(310px,100%),1fr))] mt-10">
-						{teamData.map((member) => (
+						{nameSortedTeamData.map((member) => (
 							<Link
 								href={`/about/${member.attributes.slug}`}
 								key={member.id}
