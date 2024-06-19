@@ -1,21 +1,47 @@
-import React from "react";
-import Image from "next/image";
-import { parseAsString, useQueryState } from "nuqs";
 import { getStrapiMediaUrl } from "@/lib/utils";
-import { RabbitIcon } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { WorkTypes } from "@/types/work";
 import { Collection } from "@/types/collection";
+import { RabbitIcon } from "lucide-react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { parseAsString, useQueryState } from "nuqs";
+import React from "react";
+
+interface Resource {
+  uuid: string;
+  title: string;
+  link: string;
+  image: {
+    data?: {
+      attributes: {
+        url: string;
+      };
+    };
+  };
+}
+
+interface ContentItem {
+  uuid: string;
+  title: string;
+  description: string;
+  image?: {
+    data?: {
+      attributes: {
+        url: string;
+      };
+    };
+  };
+  resources?: Resource[];
+}
 
 interface DetailsProps {
   data?: {
     [key: string]: Collection["data"];
   };
-  content: WorkTypes["data"]["attributes"]["details"];
-  isResource?: Boolean;
+  isResource?: boolean;
+  content?: ContentItem[];
 }
 
-const Details: React.FC<DetailsProps> = ({ data = {}, content, isResource }) => {
+const Details: React.FC<DetailsProps> = ({ data = {}, content = [], isResource }) => {
   const pathname = usePathname();
   const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(content[0].uuid));
   const selectedContent = content.find((item: any) => item.uuid === filter);
@@ -60,7 +86,7 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content, isResource }) => 
               data[filter].map(({ id, attributes }) => (
                 <a
                   href={isResource ? `${attributes.link}` : `${pathname}/${attributes.slug}`}
-                  target={isResource && "_blank"}
+                  target={isResource ? "_blank" : "_self"}
                   key={id}
                   className="h-fit w-full max-w-[524px]"
                 >
