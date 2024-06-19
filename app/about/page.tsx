@@ -195,12 +195,12 @@ export default async function AboutPage() {
 						<Markdown>{data.team_desc}</Markdown>
 					</div>
 
-					<div className="grid gap-10 grid-cols-[repeat(auto-fit,minmax(min(310px,100%),1fr))] mt-10">
+					<div className="grid gap-10 grid-cols-2 md:grid-cols-3 mt-10">
 						{nameSortedTeamData.map((member) => (
 							<Link
 								href={`/about/${member.attributes.slug}`}
 								key={member.id}
-								className="flex items-end gap-2"
+								className="flex items-end gap-2 sm:gap-4"
 							>
 								<Image
 									src={getStrapiMediaUrl(
@@ -209,16 +209,13 @@ export default async function AboutPage() {
 									alt=""
 									width={100}
 									height={200}
-									className="object-contain"
-									style={{
-										height: '220px',
-									}}
+									className="object-contain w-10 sm:w-auto sm:h-[220px] shrink-0"
 								/>
-								<div className="flex flex-col mb-10 max-w-48 font-heading">
-									<span className="text-xl font-bold">
+								<div className="flex flex-col gap-1 sm:mb-10 max-w-48 font-heading">
+									<span className="text-sm sm:text-xl font-bold">
 										{getFirstName(member.attributes.name)}
 									</span>
-									<span className="leading-5 text-sm">
+									<span className="sm:leading-5 text-xs sm:text-sm">
 										{member.attributes.role}
 									</span>
 								</div>
