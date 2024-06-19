@@ -60,30 +60,24 @@ export default async function Page({ params }: { params: { slug: string }; searc
 
           <section className="mt-8 ml-6">
             <Heading>Idea</Heading>
-            <div className="mt-4">
-              <Markdown className="flex flex-col gap-2">{attributes.idea}</Markdown>
-            </div>
+            <div className="mt-4">{attributes.idea ? <Markdown className="flex flex-col gap-2">{attributes.idea}</Markdown> : <p>NA</p>}</div>
           </section>
 
           <section className="mt-8 ml-6">
             <Heading>Partner</Heading>
-            <div className="mt-2">
-              <Markdown className="flex flex-col gap-2">{attributes.partner}</Markdown>
-            </div>
+            <div className="mt-2">{attributes.partner ? <Markdown className="flex flex-col gap-2">{attributes.partner}</Markdown> : <p>NA</p>}</div>
           </section>
 
           <section className="mt-8 ml-6">
             <Heading>Project Report</Heading>
             <div className="mt-2">
-              <Markdown className="flex flex-col gap-2">{attributes.project_report}</Markdown>
+              {attributes.project_report ? <Markdown className="flex flex-col gap-2">{attributes.project_report}</Markdown> : <p>NA</p>}
             </div>
           </section>
 
           <section className="mt-8 ml-6">
             <Heading>Team</Heading>
-            <div className="mt-2">
-              <Markdown className="flex flex-col gap-2">{attributes.team}</Markdown>
-            </div>
+            <div className="mt-2">{attributes.team ? <Markdown className="flex flex-col gap-2">{attributes.team}</Markdown> : <p>NA</p>}</div>
           </section>
         </div>
       </div>
@@ -93,7 +87,7 @@ export default async function Page({ params }: { params: { slug: string }; searc
           <div className="hidden sm:block min-w-56"></div>
           <div className="grow">
             <Heading>Related Links</Heading>
-            <Markdown className="mt-4 [&>ul]:list-disc [&>ul]:list-inside">{attributes.related}</Markdown>
+            {attributes.related ? <Markdown className="mt-4 [&>ul]:list-disc [&>ul]:list-inside ">{attributes.related}</Markdown> : <p>NA</p>}
           </div>
         </div>
       </section>
