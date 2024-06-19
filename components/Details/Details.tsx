@@ -1,22 +1,49 @@
-import React from "react";
-import Image from "next/image";
-import { parseAsString, useQueryState } from "nuqs";
 import { getStrapiMediaUrl } from "@/lib/utils";
-import { RabbitIcon } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { WorkTypes } from "@/types/work";
 import { Collection } from "@/types/collection";
+import { RabbitIcon } from "lucide-react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { parseAsString, useQueryState } from "nuqs";
+import React from "react";
+
+interface Resource {
+  uuid: string;
+  title: string;
+  link: string;
+  image: {
+    data?: {
+      attributes: {
+        url: string;
+      };
+    };
+  };
+}
+
+interface ContentItem {
+  uuid: string;
+  title: string;
+  description: string;
+  image?: {
+    data?: {
+      attributes: {
+        url: string;
+      };
+    };
+  };
+  resources?: Resource[];
+}
 
 interface DetailsProps {
   data?: {
     [key: string]: Collection["data"];
   };
-  content?: WorkTypes["data"]["attributes"]["initiative"];
+  isResource?: boolean;
+  content?: ContentItem[];
 }
 
-const Details: React.FC<DetailsProps> = ({ data = {}, content = [] }) => {
+const Details: React.FC<DetailsProps> = ({ data = {}, content = [], isResource }) => {
   const pathname = usePathname();
-  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(content[0]?.uuid));
+  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(content[0].uuid));
   const selectedContent = content.find((item: any) => item.uuid === filter);
 
   return (
@@ -57,7 +84,12 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content = [] }) => {
           <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] grow">
             {data && data[filter] && data[filter].length > 0 ? (
               data[filter].map(({ id, attributes }) => (
-                <a href={`${pathname}/${attributes.slug}`} key={id} className="h-fit w-full max-w-[524px]">
+                <a
+                  href={isResource ? `${attributes.link}` : `${pathname}/${attributes.slug}`}
+                  target={isResource ? "_blank" : "_self"}
+                  key={id}
+                  className="h-fit w-full max-w-[524px]"
+                >
                   <Image
                     src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
                     width={524}

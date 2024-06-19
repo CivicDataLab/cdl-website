@@ -4,7 +4,7 @@ import ResourcePage from "./client";
 import { Suspense } from "react";
 import { Collection } from "@/types/collection";
 
-const queries = ["image", "type", "type.resources.image", "type.image"];
+const queries = ["image", "type", "type.resources.image", "type.image", "initiative", "initiative.image"];
 
 export default async function Resource() {
   const strapiData: ResourceTypes = await getStrapiData(`/resource`, queries);

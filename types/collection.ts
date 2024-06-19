@@ -19,6 +19,7 @@ interface Attributes {
   team: string;
   related: string;
   initiative: string;
+  event_type: string;
   type: string;
   createdAt: Date;
   updatedAt: Date;

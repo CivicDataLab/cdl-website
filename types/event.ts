@@ -13,7 +13,7 @@ interface Attributes {
   description: string;
   event_participation_title: string;
   event_participation_description: string;
-  initiative: Details[];
+  event_type: Details[];
   event_details: EventDetails[];
   participation_link: Link;
 }

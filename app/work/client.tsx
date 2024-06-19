@@ -1,12 +1,12 @@
 "use client";
 
-import List from "@/components/Details/Details";
 import Image from "next/image";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/Carousel/Carousel";
+import Details from "@/components/Details/Details";
 import { getStrapiMediaUrl } from "@/lib/utils";
-import { WorkTypes } from "@/types/work";
 import { Collection } from "@/types/collection";
+import { WorkTypes } from "@/types/work";
 import Markdown from "react-markdown";
 
 export function WorkClient({
@@ -45,7 +45,7 @@ export function WorkClient({
       </section>
 
       {/* Listing */}
-      <List data={collectionData} content={pageData.initiative} />
+      <Details data={collectionData} content={pageData.initiative} />
 
       {/* Capacity building */}
       <section className=" bg-light-green">
