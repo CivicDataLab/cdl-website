@@ -1,5 +1,6 @@
-import { getStrapiCollectionData, getStrapiMediaUrl } from "@/lib/utils";
+import { getStrapiCollectionData, getStrapiData, getStrapiMediaUrl } from "@/lib/utils";
 import { Collection } from "@/types/collection";
+import { EventTypes } from "@/types/event";
 import Image from "next/image";
 import Markdown from "react-markdown";
 
@@ -12,27 +13,30 @@ export default async function Page({ params }: { params: { slug: string }; searc
 
   const data = strapiData.data[0];
   const { attributes, id } = data;
+  const queries = ["event_type.image"];
+
+  const Sidebar: EventTypes = await getStrapiData(`/event`, queries);
+
+  const SidebarData = Sidebar.data.attributes.event_type.filter((item) => item.uuid === data.attributes.event_type)[0];
 
   return (
     <main>
       <div className="flex justify-center flex-wrap sm:flex-nowrap gap-14 px-5">
-        <div className="w-52 shrink-0 grow sm:sticky top-0 h-fit">
-          <Image
-            src="/B2.jpg"
-            alt=""
-            width={120}
-            height={120}
-            className="mt-10"
-            style={{
-              width: "120px",
-              height: "120px",
-            }}
-          />
-          <p className="font-heading text-2xl font-bold mt-4">Climate Action</p>
-          <p className="mt-3">
-            We create and curate high quality public datasets in the areas of climate action. We build open data portals to increase information
-            accessibility and conduct trainings and workshops for our partners to enhance their data and tech capacity
-          </p>
+        <div className="w-52 shrink-0 grow sm:sticky top-0 h-fit mt-10">
+          {SidebarData.image.data && (
+            <Image
+              src={getStrapiMediaUrl(SidebarData.image.data.attributes.url)}
+              alt=""
+              width={120}
+              height={120}
+              style={{
+                width: "120px",
+                height: "120px",
+              }}
+            />
+          )}
+          <p className="font-heading text-2xl font-bold mt-4">{SidebarData.title}</p>
+          <p className="mt-3">{SidebarData.description} </p>
         </div>
 
         <div className="grow">
