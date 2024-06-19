@@ -200,7 +200,7 @@ export default async function AboutPage() {
 							<Link
 								href={`/about/${member.attributes.slug}`}
 								key={member.id}
-								className="flex items-end gap-3"
+								className="flex items-end gap-2"
 							>
 								<Image
 									src={getStrapiMediaUrl(
@@ -211,8 +211,7 @@ export default async function AboutPage() {
 									height={200}
 									className="object-contain"
 									style={{
-										width: '100px',
-										height: '200px',
+										height: '220px',
 									}}
 								/>
 								<div className="flex flex-col mb-10 max-w-48 font-heading">

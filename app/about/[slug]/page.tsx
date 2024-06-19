@@ -19,16 +19,16 @@ export default async function Page({
 	const attributes: Attributes = data.attributes
 
 	return (
-		<main className="my-10 container sm:flex gap-8">
+		<main className="my-10 container sm:flex gap-6">
 			<div className="flex sm:flex-col gap-4 items-center">
 				<Image
 					src={getStrapiMediaUrl(attributes.profile.data.attributes.url)}
 					alt=""
-					width={540}
-					height={600}
-					className="object-contain shrink max-h-[300px] sm:max-h-[600px] h-fit w-full sm:max-w-[540px]"
+					width={283}
+					height={887}
+					className="object-contain shrink h-[300px] sm:h-[480px] w-fit sm:w-[revert-layer]"
 				/>
-				<div className="flex flex-col basis-full">
+				<div className="flex flex-col">
 					<Profile attributes={attributes} className="sm:hidden" />
 					<a
 						href={getStrapiMediaUrl(attributes.hi_res.data.attributes.url)}
@@ -38,7 +38,7 @@ export default async function Page({
 					</a>
 				</div>
 			</div>
-			<div>
+			<div className="max-w-[680px]">
 				<Profile attributes={attributes} className="hidden sm:block" />
 
 				<Markdown className="flex flex-col gap-4 text-lg mt-4 sm:mt-0">
