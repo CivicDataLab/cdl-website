@@ -1,8 +1,6 @@
 export async function POST(request: Request) {
 	const { email, name } = await request.json()
 
-	console.log({ email, name })
-
 	if (!email) {
 		return Response.json({ error: 'Email is required' }, { status: 400 })
 	}

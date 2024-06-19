@@ -97,3 +97,28 @@ interface Thumbnail {
 	sizeInBytes: number
 	url: string
 }
+
+export interface Team {
+	data: Datum[]
+}
+
+interface Datum {
+	id: number
+	attributes: Attributes
+}
+
+export interface Attributes {
+	name: string
+	role: string
+	desc: string
+	quote: string
+	linkedin_link?: string
+	twitter_link?: string
+	github_link?: string
+	createdAt: Date
+	updatedAt: Date
+	publishedAt: Date
+	profile: Icon
+	hi_res: Icon
+	slug: string
+}

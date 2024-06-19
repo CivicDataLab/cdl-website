@@ -1,7 +1,8 @@
 import { getStrapiData, getStrapiMediaUrl } from '@/lib/utils'
-import { About } from '@/types/about'
+import { About, Team } from '@/types/about'
 import { HomeIcon } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Markdown from 'react-markdown'
 
 const offerings = [
@@ -37,9 +38,14 @@ const queries = [
 	'team_items.image',
 ]
 
+const queriesTeam = ['profile', 'hi_res']
+
 export default async function AboutPage() {
 	const strapiData: About = await getStrapiData(`/about`, queries)
+	const strapiTeamData: Team = await getStrapiData(`/teams`, queriesTeam)
+
 	const data = strapiData.data.attributes
+	const teamData = strapiTeamData.data
 
 	return (
 		<main>
@@ -187,10 +193,16 @@ export default async function AboutPage() {
 					</div>
 
 					<div className="grid gap-10 grid-cols-[repeat(auto-fit,minmax(min(310px,100%),1fr))] mt-10">
-						{data.team_items.map((member) => (
-							<div key={member.id} className="flex items-end gap-6">
+						{teamData.map((member) => (
+							<Link
+								href={`/about/${member.attributes.slug}`}
+								key={member.id}
+								className="flex items-end gap-3"
+							>
 								<Image
-									src={getStrapiMediaUrl(member.image.data.attributes.url)}
+									src={getStrapiMediaUrl(
+										member.attributes.profile.data.attributes.url
+									)}
 									alt=""
 									width={100}
 									height={200}
@@ -202,11 +214,13 @@ export default async function AboutPage() {
 								/>
 								<div className="flex flex-col mb-10 max-w-48 font-heading">
 									<span className="text-xl font-bold">
-										{getFirstName(member.name)}
+										{getFirstName(member.attributes.name)}
 									</span>
-									<span className="leading-5 text-sm">{member.role}</span>
+									<span className="leading-5 text-sm">
+										{member.attributes.role}
+									</span>
 								</div>
-							</div>
+							</Link>
 						))}
 					</div>
 				</div>
