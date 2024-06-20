@@ -14,6 +14,7 @@ interface Attributes {
   title: string;
   desc: string;
   idea: string;
+  know_now_more: string;
   partner: string;
   project_report: string;
   team: string;
