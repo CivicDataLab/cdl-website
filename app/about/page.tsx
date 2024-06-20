@@ -145,7 +145,9 @@ export default async function AboutPage() {
 					<div className="mt-10 columns-2 md:columns-3 gap-10 [&>div]:mb-8">
 						{data.values_items.map((item) => (
 							<ValueCard key={item.id} title={item.title}>
-								<Markdown className="flex flex-col gap-2">{item.desc}</Markdown>
+								<Markdown className="flex flex-col gap-2 text-sm sm:text-base">
+									{item.desc}
+								</Markdown>
 							</ValueCard>
 						))}
 					</div>
@@ -240,7 +242,7 @@ const ValueCard = ({
 	children: React.ReactNode
 }) => (
 	<div className="break-inside-avoid-column flex flex-col gap-4">
-		<h3 className="text-light-blue font-heading font-bold text-xl uppercase">
+		<h3 className="text-light-blue font-heading font-bold sm:text-xl uppercase">
 			{title}
 		</h3>
 		<div>{children}</div>
