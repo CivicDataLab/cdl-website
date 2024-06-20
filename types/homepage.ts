@@ -95,4 +95,5 @@ interface Attributes {
 	}
 	team_title: string
 	team_items: { data: Image[] }
+	subscribe_title: string
 }

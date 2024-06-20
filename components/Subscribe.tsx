@@ -41,7 +41,7 @@ export const SubscribeForm = () => {
 			className="mt-8 flex gap-4 flex-col sm:flex-row sm:items-end"
 			onSubmit={subscribeUser}
 		>
-			<div className="flex flex-col gap-1 basis-80">
+			<div className="flex flex-col gap-1 sm:basis-80">
 				<label htmlFor="sub_name">Name</label>
 				<input
 					ref={nameRef}
