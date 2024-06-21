@@ -101,7 +101,7 @@ const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) =
                       )}
                       width={524}
                       height={300}
-                      className="object-cover"
+                      className="object-contain"
                       alt={attributes.title}
                       style={{
                         width: "524px",
