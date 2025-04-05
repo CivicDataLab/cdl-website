@@ -1,19 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-	images: {
-		remotePatterns: [
-			{
-				protocol: 'http',
-				hostname: 'localhost',
-				port: '1337',
-			},
-			{
-				protocol: 'http',
-				hostname: '3.110.105.123',
-				port: '',
-			},
-		],
-	},
-}
+const backendUrl = new URL(process.env.NEXT_PUBLIC_STRAPI_URL || '');
 
-export default nextConfig
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: backendUrl.protocol.replace(':', ''),
+        hostname: backendUrl.hostname,
+        port: backendUrl.port || '', // empty string if no port
+        pathname: '/**',
+      },
+    ],
+  },
+};
+
+export default nextConfig;
