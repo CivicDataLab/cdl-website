@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${mukta.variable} ${montserrat.variable}`}>
         <Navbar />
         {children}
         <Footer />
