@@ -25,6 +25,7 @@ export const Footer = () => {
         <div className="flex items-center gap-8">
           <a href="/">
             <Image
+              unoptimized
               src="/logo_dark.png"
               width={80}
               height={104}
@@ -52,8 +53,15 @@ export const Footer = () => {
             <div className="flex gap-2 items-center mt-4">
               <div className="flex gap-1">
                 {socialLinks.map(({ href, icon, name }) => (
-                  <a rel="noreferrer" target="_blank" href={href} key={name} className="bg-on-bg p-2 rounded-full">
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    href={href}
+                    key={name}
+                    className="bg-on-bg p-2 rounded-full"
+                  >
                     <Image
+                      unoptimized
                       src={icon}
                       alt={name}
                       width={20}

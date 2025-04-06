@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/Carousel/Carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/Carousel/Carousel";
 import Details from "@/components/Details/Details";
 import { getStrapiMediaUrl } from "@/lib/utils";
 import { Collection } from "@/types/collection";
@@ -25,6 +31,7 @@ export function WorkClient({
         <div className="bg-light-green w-full">
           <div className="flex justify-center flex-wrap items-center py-16 px-8 lg:p-10 gap-10 lg:gap-26 flex-grow">
             <Image
+              unoptimized
               src={getStrapiMediaUrl(pageData.work_img.data.attributes.url)}
               width={600}
               height={390}
@@ -51,7 +58,9 @@ export function WorkClient({
       <section className=" bg-light-green">
         <div className=" container w-full lg:p-16 p-10 ">
           <div>
-            <h2 className="font-heading font-extrabold text-2xl mb-3">{pageData.capacity_title}</h2>
+            <h2 className="font-heading font-extrabold text-2xl mb-3">
+              {pageData.capacity_title}
+            </h2>
             <p className="text-xl">{pageData.capacity_desc}</p>
           </div>
           <Carousel
@@ -63,10 +72,14 @@ export function WorkClient({
           >
             <CarouselContent className="-ml-1">
               {pageData.capacity_media.data.map((item: any) => (
-                <CarouselItem key={item.id} className="pl-1 md:basis-1/2 lg:basis-1/5">
+                <CarouselItem
+                  key={item.id}
+                  className="pl-1 md:basis-1/2 lg:basis-1/5"
+                >
                   <div className="p-1">
                     <div className="flex aspect-square items-center justify-center p-6">
                       <Image
+                        unoptimized
                         src={getStrapiMediaUrl(item.attributes.url)}
                         style={{
                           width: "150px",

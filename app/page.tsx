@@ -1,4 +1,10 @@
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/Carousel/Carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/Carousel/Carousel";
 import { Globe } from "@/components/Globe";
 import { SubscribeForm } from "@/components/Subscribe";
 import { Typed } from "@/components/Typed";
@@ -7,7 +13,16 @@ import { Homepage } from "@/types/homepage";
 import Image from "next/image";
 import Markdown from "react-markdown";
 
-const queries = ["offer_items.icon", "offer_link", "data_items", "about_link", "focus_card.icon", "focus_card.link", "partner_items", "team_items"];
+const queries = [
+  "offer_items.icon",
+  "offer_link",
+  "data_items",
+  "about_link",
+  "focus_card.icon",
+  "focus_card.link",
+  "partner_items",
+  "team_items",
+];
 
 export default async function Home() {
   const strapiData: Homepage = await getStrapiData(`/homepage`, queries);
@@ -34,7 +49,9 @@ export default async function Home() {
             <h1 className="text-2xl sm:text-3xl text-center font-medium">
               <Markdown>{data.heading}</Markdown>
 
-              <span className="sr-only">data, tech, design, social science</span>
+              <span className="sr-only">
+                data, tech, design, social science
+              </span>
             </h1>
 
             <div className="text-2xl sm:text-3xl text-center text-dark-blue font-bold">
@@ -66,12 +83,17 @@ export default async function Home() {
                   height: "150px",
                 }}
               />
-              <span className="max-w-56 text-center text-2xl">{item.title}</span>
+              <span className="max-w-56 text-center text-2xl">
+                {item.title}
+              </span>
             </div>
           ))}
         </div>
 
-        <a href={data.offer_link.url} className="mt-8 inline-block font-medium text-lg">
+        <a
+          href={data.offer_link.url}
+          className="mt-8 inline-block font-medium text-lg"
+        >
           {data.offer_link.title}
         </a>
       </section>
@@ -87,8 +109,12 @@ export default async function Home() {
             </div>
             <div className="">
               <div className="font-heading">
-                <span className="text-4xl font-extrabold text-light-blue">{data.data_items[0].title}</span>
-                <p className="mt-2 text-3xl font-bold">{data.data_items[0].sub_title}</p>
+                <span className="text-4xl font-extrabold text-light-blue">
+                  {data.data_items[0].title}
+                </span>
+                <p className="mt-2 text-3xl font-bold">
+                  {data.data_items[0].sub_title}
+                </p>
               </div>
 
               <div className="mt-6">
@@ -107,7 +133,10 @@ export default async function Home() {
             <Markdown>{data.about_desc}</Markdown>
           </div>
 
-          <a href={data.about_link.url} className="my-8 inline-block font-medium text-lg">
+          <a
+            href={data.about_link.url}
+            className="my-8 inline-block font-medium text-lg"
+          >
             {data.about_link.title}
           </a>
 
@@ -134,17 +163,23 @@ export default async function Home() {
                 src={getStrapiMediaUrl(card.icon.data.attributes.url)}
                 alt=""
                 width={150}
+                unoptimized
                 height={150}
                 style={{
                   width: "150px",
                   height: "150px",
                 }}
               />
-              <h3 className="max-w-56 uppercase font-heading font-bold text-xl">{card.title}</h3>
+              <h3 className="max-w-56 uppercase font-heading font-bold text-xl">
+                {card.title}
+              </h3>
               <div className="mt-1">
                 <Markdown>{card.desc}</Markdown>
               </div>
-              <a href={card.link.url} className="mt-1 inline-block font-medium text-lg">
+              <a
+                href={card.link.url}
+                className="mt-1 inline-block font-medium text-lg"
+              >
                 {card.link.title}
               </a>
             </div>
@@ -166,7 +201,10 @@ export default async function Home() {
         >
           <CarouselContent className="-ml-1">
             {data.partner_items.data.map((item) => (
-              <CarouselItem key={item.id} className="pl-1 md:basis-1/2 lg:basis-1/5">
+              <CarouselItem
+                key={item.id}
+                className="pl-1 md:basis-1/2 lg:basis-1/5"
+              >
                 <div className="p-1">
                   <div className="flex aspect-square items-center justify-center p-6">
                     <Image
@@ -174,6 +212,7 @@ export default async function Home() {
                       alt=""
                       width={150}
                       height={150}
+                      unoptimized
                       style={{
                         width: "150px",
                         height: "150px",
@@ -205,10 +244,14 @@ export default async function Home() {
           >
             <CarouselContent className="-ml-1">
               {data.team_items.data.map((item) => (
-                <CarouselItem key={item.id} className="pl-1 md:basis-1/2 lg:basis-1/5">
+                <CarouselItem
+                  key={item.id}
+                  className="pl-1 md:basis-1/2 lg:basis-1/5"
+                >
                   <div className="p-1">
                     <div className="flex aspect-square items-center justify-center p-2 gap-4">
                       <Image
+                        unoptimized
                         src={getStrapiMediaUrl(item.attributes.url)}
                         alt=""
                         width={283}
@@ -242,4 +285,6 @@ export default async function Home() {
   );
 }
 
-const Heading = ({ children }: { children: React.ReactNode }) => <h2 className="font-heading font-extrabold text-2xl">{children}</h2>;
+const Heading = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="font-heading font-extrabold text-2xl">{children}</h2>
+);

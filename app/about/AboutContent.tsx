@@ -68,6 +68,7 @@ export default function AboutContent() {
               {data.heading_items.map((item) => (
                 <div key={item.id} className="flex flex-col gap-4 items-center">
                   <Image
+                    unoptimized
                     src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.icon.data.attributes.url}`}
                     alt=""
                     width={120}
@@ -107,6 +108,7 @@ export default function AboutContent() {
               </div>
             </div>
             <Image
+              unoptimized
               src={getStrapiMediaUrl(data.process_media.data.attributes.url)}
               alt=""
               width={700}
@@ -186,6 +188,7 @@ export default function AboutContent() {
           </div>
 
           <Image
+            unoptimized
             src={getStrapiMediaUrl(data.pillar_media.data.attributes.url)}
             alt=""
             width={640}
@@ -214,6 +217,7 @@ export default function AboutContent() {
                   className="flex items-end gap-2 sm:gap-4"
                 >
                   <Image
+                    unoptimized
                     src={getStrapiMediaUrl(
                       member.attributes.profile.data.attributes.url
                     )}

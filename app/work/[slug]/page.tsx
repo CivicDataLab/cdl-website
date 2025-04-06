@@ -1,10 +1,19 @@
-import { getStrapiCollectionData, getStrapiData, getStrapiMediaUrl } from "@/lib/utils";
+import {
+  getStrapiCollectionData,
+  getStrapiData,
+  getStrapiMediaUrl,
+} from "@/lib/utils";
 import { Collection } from "@/types/collection";
 import { WorkTypes } from "@/types/work";
 import Image from "next/image";
 import Markdown from "react-markdown";
 
-export default async function Page({ params }: { params: { slug: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function Page({
+  params,
+}: {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const strapiData: Collection = await getStrapiCollectionData({
     url: "/work-collections",
     slug: params.slug,
@@ -17,7 +26,9 @@ export default async function Page({ params }: { params: { slug: string }; searc
 
   const Sidebar: WorkTypes = await getStrapiData(`/work`, queries);
 
-  const SidebarData = Sidebar.data.attributes.initiative.filter((item) => item.uuid === data.attributes.initiative)[0];
+  const SidebarData = Sidebar.data.attributes.initiative.filter(
+    (item) => item.uuid === data.attributes.initiative
+  )[0];
 
   return (
     <main>
@@ -25,6 +36,7 @@ export default async function Page({ params }: { params: { slug: string }; searc
         <div className="w-52 shrink-0 grow sm:sticky top-0 h-fit mt-10">
           {SidebarData.image.data && (
             <Image
+              unoptimized
               src={getStrapiMediaUrl(SidebarData.image.data.attributes.url)}
               alt=""
               width={120}
@@ -35,16 +47,23 @@ export default async function Page({ params }: { params: { slug: string }; searc
               }}
             />
           )}
-          <p className="font-heading text-2xl font-bold mt-4">{SidebarData.title}</p>
+          <p className="font-heading text-2xl font-bold mt-4">
+            {SidebarData.title}
+          </p>
           <p className="mt-3">{SidebarData.description} </p>
         </div>
 
         <div className="grow">
           <section className="bg-light-green w-full sm:min-h-48 rounded-l-xl font-heading py-6 px-5">
-            <h1 className="font-extrabold text-2xl uppercase">{attributes.title}</h1>
-            <p className="font-semibold text-lg mt-2 max-w-[420px]">{attributes.desc}</p>
+            <h1 className="font-extrabold text-2xl uppercase">
+              {attributes.title}
+            </h1>
+            <p className="font-semibold text-lg mt-2 max-w-[420px]">
+              {attributes.desc}
+            </p>
             <div className="max-h-96 overflow-clip">
               <Image
+                unoptimized
                 src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
                 width={840}
                 height={480}
@@ -60,31 +79,67 @@ export default async function Page({ params }: { params: { slug: string }; searc
 
           <section className="mt-8 ml-6">
             <Heading>Idea</Heading>
-            <div className="mt-4">{attributes.idea ? <Markdown className="flex flex-col gap-2">{attributes.idea}</Markdown> : <p>NA</p>}</div>
+            <div className="mt-4">
+              {attributes.idea ? (
+                <Markdown className="flex flex-col gap-2">
+                  {attributes.idea}
+                </Markdown>
+              ) : (
+                <p>NA</p>
+              )}
+            </div>
           </section>
 
           <section className="mt-8 ml-6">
             <Heading>Know Now More</Heading>
             <div className="mt-4">
-              {attributes.know_now_more ? <Markdown className="flex flex-col gap-2">{attributes.know_now_more}</Markdown> : <p>NA</p>}
+              {attributes.know_now_more ? (
+                <Markdown className="flex flex-col gap-2">
+                  {attributes.know_now_more}
+                </Markdown>
+              ) : (
+                <p>NA</p>
+              )}
             </div>
           </section>
 
           <section className="mt-8 ml-6">
             <Heading>Partner</Heading>
-            <div className="mt-2">{attributes.partner ? <Markdown className="flex flex-col gap-2">{attributes.partner}</Markdown> : <p>NA</p>}</div>
+            <div className="mt-2">
+              {attributes.partner ? (
+                <Markdown className="flex flex-col gap-2">
+                  {attributes.partner}
+                </Markdown>
+              ) : (
+                <p>NA</p>
+              )}
+            </div>
           </section>
 
           <section className="mt-8 ml-6">
             <Heading>Project Report</Heading>
             <div className="mt-2">
-              {attributes.project_report ? <Markdown className="flex flex-col gap-2">{attributes.project_report}</Markdown> : <p>NA</p>}
+              {attributes.project_report ? (
+                <Markdown className="flex flex-col gap-2">
+                  {attributes.project_report}
+                </Markdown>
+              ) : (
+                <p>NA</p>
+              )}
             </div>
           </section>
 
           <section className="mt-8 ml-6">
             <Heading>Team</Heading>
-            <div className="mt-2">{attributes.team ? <Markdown className="flex flex-col gap-2">{attributes.team}</Markdown> : <p>NA</p>}</div>
+            <div className="mt-2">
+              {attributes.team ? (
+                <Markdown className="flex flex-col gap-2">
+                  {attributes.team}
+                </Markdown>
+              ) : (
+                <p>NA</p>
+              )}
+            </div>
           </section>
         </div>
       </div>
@@ -94,7 +149,13 @@ export default async function Page({ params }: { params: { slug: string }; searc
           <div className="hidden sm:block min-w-56"></div>
           <div className="grow">
             <Heading>Related Links</Heading>
-            {attributes.related ? <Markdown className="mt-4 [&>ul]:list-disc [&>ul]:list-inside ">{attributes.related}</Markdown> : <p>NA</p>}
+            {attributes.related ? (
+              <Markdown className="mt-4 [&>ul]:list-disc [&>ul]:list-inside ">
+                {attributes.related}
+              </Markdown>
+            ) : (
+              <p>NA</p>
+            )}
           </div>
         </div>
       </section>
@@ -102,4 +163,6 @@ export default async function Page({ params }: { params: { slug: string }; searc
   );
 }
 
-const Heading = ({ children }: { children: React.ReactNode }) => <h2 className="font-heading font-extrabold text-2xl">{children}</h2>;
+const Heading = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="font-heading font-extrabold text-2xl">{children}</h2>
+);

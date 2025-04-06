@@ -41,9 +41,16 @@ interface DetailsProps {
   content?: ContentItem[];
 }
 
-const Details: React.FC<DetailsProps> = ({ data = {}, content = [], isResource }) => {
+const Details: React.FC<DetailsProps> = ({
+  data = {},
+  content = [],
+  isResource,
+}) => {
   const pathname = usePathname();
-  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(content[0].uuid));
+  const [filter, setFilter] = useQueryState(
+    "filter",
+    parseAsString.withDefault(content[0].uuid)
+  );
   const selectedContent = content.find((item: any) => item.uuid === filter);
 
   return (
@@ -66,7 +73,10 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content = [], isResource }
           <div className="sm:max-w-52 sm:shrink-0 grow h-fit sm:sticky top-0">
             {selectedContent?.image?.data && (
               <Image
-                src={getStrapiMediaUrl(selectedContent?.image?.data?.attributes?.url)}
+                unoptimized
+                src={getStrapiMediaUrl(
+                  selectedContent?.image?.data?.attributes?.url
+                )}
                 alt=""
                 width={120}
                 height={120}
@@ -76,7 +86,9 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content = [], isResource }
                 }}
               />
             )}
-            <p className="font-heading text-2xl font-bold mt-4">{selectedContent.title}</p>
+            <p className="font-heading text-2xl font-bold mt-4">
+              {selectedContent.title}
+            </p>
             <p className="mt-3">{selectedContent.description}</p>
           </div>
         )}
@@ -85,13 +97,20 @@ const Details: React.FC<DetailsProps> = ({ data = {}, content = [], isResource }
             {data && data[filter] && data[filter].length > 0 ? (
               data[filter].map(({ id, attributes }) => (
                 <a
-                  href={isResource ? `${attributes.link}` : `${pathname}/${attributes.slug}`}
+                  href={
+                    isResource
+                      ? `${attributes.link}`
+                      : `${pathname}/${attributes.slug}`
+                  }
                   target={isResource ? "_blank" : "_self"}
                   key={id}
                   className="h-fit w-full max-w-[524px]"
                 >
                   <Image
-                    src={getStrapiMediaUrl(attributes.media.data.attributes.url)}
+                    unoptimized
+                    src={getStrapiMediaUrl(
+                      attributes.media.data.attributes.url
+                    )}
                     width={524}
                     height={300}
                     className="object-cover"

@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
+const backendUrl = new URL(process.env.NEXT_PUBLIC_STRAPI_URL || '');
+console.log('Image host config:', backendUrl.hostname);
+
 const nextConfig = {
   images: {
-    domains: [
-      'dev.strapi.civicdatalab.in', // <-- this is the only one you really need
+    remotePatterns: [
+      {
+        protocol: backendUrl.protocol.replace(':', ''),
+        hostname: backendUrl.hostname,
+        port: backendUrl.port || '', // empty string if no port
+        pathname: '/**',
+      },
     ],
-    formats: ['image/webp'],
   },
 };
 

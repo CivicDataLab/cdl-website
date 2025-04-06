@@ -44,6 +44,7 @@ export default function AboutSlugContent({ slug }: Props) {
     <main className="my-10 container sm:flex gap-6">
       <div className="flex sm:flex-col gap-4 items-center">
         <Image
+          unoptimized
           src={getStrapiMediaUrl(attributes.profile.data.attributes.url)}
           alt=""
           width={283}
@@ -87,6 +88,7 @@ const SocialLink = ({
     className="p-2 rounded-full border border-dark-grey hover:bg-light-blue transition-colors"
   >
     <Image
+      unoptimized
       src={icon}
       alt={name}
       width={20}

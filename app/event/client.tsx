@@ -15,7 +15,13 @@ interface ParticipationSection {
   eventImageSrc: any;
 }
 
-const EventSection: React.FC<ParticipationSection> = ({ title, date, location, partnerLogoSrc, eventImageSrc }) => {
+const EventSection: React.FC<ParticipationSection> = ({
+  title,
+  date,
+  location,
+  partnerLogoSrc,
+  eventImageSrc,
+}) => {
   return (
     <div className="flex container justify-center flex-wrap items-center mt-12 ">
       <div className="lg:p-10 p-6 md:w-3/4 lg:min-h-64 lg:max-h-64 lg:w-2/4 flex flex-col justify-between bg-white">
@@ -24,6 +30,7 @@ const EventSection: React.FC<ParticipationSection> = ({ title, date, location, p
           {date} | {location}
         </p>
         <Image
+          unoptimized
           src={getStrapiMediaUrl(partnerLogoSrc.data.attributes.url)}
           width={120}
           height={30}
@@ -36,6 +43,7 @@ const EventSection: React.FC<ParticipationSection> = ({ title, date, location, p
         />
       </div>
       <Image
+        unoptimized
         src={getStrapiMediaUrl(eventImageSrc.data.attributes.url)}
         width={560}
         height={340}
@@ -58,7 +66,9 @@ export function EventClient({
   };
   pageData: EventTypes["data"]["attributes"];
 }) {
-  const items = pageData.description?.split("\n").filter((item) => item.trim() !== "") || [];
+  const items =
+    pageData.description?.split("\n").filter((item) => item.trim() !== "") ||
+    [];
 
   return (
     <main>
@@ -67,6 +77,7 @@ export function EventClient({
         <div className="bg-light-green w-full">
           <div className="flex justify-center flex-wrap items-center py-16 px-8 lg:p-10 gap-10 lg:gap-26 flex-grow">
             <Image
+              unoptimized
               src={getStrapiMediaUrl(pageData.image.data.attributes.url)}
               width={600}
               height={390}
@@ -78,7 +89,13 @@ export function EventClient({
               alt="book logo"
             />
             <div className=" lg:max-w-lg">
-              <Markdown className={"text-dark-blue font-heading text-2xl font-bold mb-3"}>{pageData.heading_title}</Markdown>
+              <Markdown
+                className={
+                  "text-dark-blue font-heading text-2xl font-bold mb-3"
+                }
+              >
+                {pageData.heading_title}
+              </Markdown>
               <div>
                 <p className="text-xl">{items.length > 0 ? items[0] : ""}</p>
                 <ul className="list-disc ml-12 marker:text-dark-blue">
@@ -99,8 +116,12 @@ export function EventClient({
       <section>
         <div className="bg-light-green w-full lg:p-20 p-10 ">
           <div className="container">
-            <h2 className=" font-heading text-2xl font-extrabold mb-3">{pageData.event_participation_title}</h2>
-            <p className="text-xl">{pageData.event_participation_description}</p>
+            <h2 className=" font-heading text-2xl font-extrabold mb-3">
+              {pageData.event_participation_title}
+            </h2>
+            <p className="text-xl">
+              {pageData.event_participation_description}
+            </p>
           </div>
 
           {pageData.event_details.map((item, index) => (
@@ -116,7 +137,10 @@ export function EventClient({
           ))}
 
           <div className="container">
-            <a href={pageData.participation_link.url} className="mt-8 inline-block font-medium text-lg">
+            <a
+              href={pageData.participation_link.url}
+              className="mt-8 inline-block font-medium text-lg"
+            >
               {pageData.participation_link.title}
             </a>
           </div>

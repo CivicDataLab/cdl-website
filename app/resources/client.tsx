@@ -17,10 +17,21 @@ interface ResourceProps {
   };
 }
 
-const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) => {
-  const items = strapiData.data?.attributes?.description?.split("\n").filter((item) => item.trim() !== "") || [];
-  const [filter, setFilter] = useQueryState("filter", parseAsString.withDefault(strapiData.data?.attributes?.type[0]?.uuid));
-  const selectedContent = strapiData.data?.attributes?.type.find((item: any) => item.uuid === filter);
+const ResourcePage: React.FC<ResourceProps> = ({
+  strapiData,
+  collectionData,
+}) => {
+  const items =
+    strapiData.data?.attributes?.description
+      ?.split("\n")
+      .filter((item) => item.trim() !== "") || [];
+  const [filter, setFilter] = useQueryState(
+    "filter",
+    parseAsString.withDefault(strapiData.data?.attributes?.type[0]?.uuid)
+  );
+  const selectedContent = strapiData.data?.attributes?.type.find(
+    (item: any) => item.uuid === filter
+  );
 
   return (
     <div>
@@ -29,7 +40,10 @@ const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) =
           <div className="flex justify-center flex-wrap items-center py-16 px-8 lg:p-16 gap-10 lg:gap-26 flex-grow">
             {strapiData.data?.attributes?.image?.data?.attributes?.url && (
               <Image
-                src={getStrapiMediaUrl(strapiData.data.attributes.image.data.attributes.url)}
+                unoptimized
+                src={getStrapiMediaUrl(
+                  strapiData.data.attributes.image.data.attributes.url
+                )}
                 width={520}
                 height={320}
                 className="object-contain"
@@ -41,7 +55,11 @@ const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) =
               />
             )}
             <div className="lg:max-w-md">
-              <Markdown className={"text-dark-blue font-heading text-2xl font-bold mb-3"}>
+              <Markdown
+                className={
+                  "text-dark-blue font-heading text-2xl font-bold mb-3"
+                }
+              >
                 {strapiData.data?.attributes?.heading_title || "No title"}
               </Markdown>
               <ul className="list-disc ml-12 marker:text-dark-blue">
@@ -74,7 +92,10 @@ const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) =
             <div className="sm:max-w-52 sm:shrink-0 grow h-fit sm:sticky top-0">
               {selectedContent?.image?.data && (
                 <Image
-                  src={getStrapiMediaUrl(selectedContent?.image?.data?.attributes?.url)}
+                  unoptimized
+                  src={getStrapiMediaUrl(
+                    selectedContent?.image?.data?.attributes?.url
+                  )}
                   alt=""
                   width={120}
                   height={120}
@@ -84,20 +105,31 @@ const ResourcePage: React.FC<ResourceProps> = ({ strapiData, collectionData }) =
                   }}
                 />
               )}
-              <p className="font-heading text-2xl font-bold mt-4">{selectedContent.title}</p>
+              <p className="font-heading text-2xl font-bold mt-4">
+                {selectedContent.title}
+              </p>
               <p className="mt-3">{selectedContent.description}</p>
             </div>
           )}
           {
             <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] grow">
-              {collectionData && collectionData[filter] && collectionData[filter].length > 0 ? (
+              {collectionData &&
+              collectionData[filter] &&
+              collectionData[filter].length > 0 ? (
                 collectionData[filter].map(({ id, attributes }) => (
-                  <a href={`${attributes.link}`} target={"_blank"} key={id} className="h-fit w-full max-w-[524px]">
+                  <a
+                    href={`${attributes.link}`}
+                    target={"_blank"}
+                    key={id}
+                    className="h-fit w-full max-w-[524px]"
+                  >
                     <Image
+                      unoptimized
                       src={getStrapiMediaUrl(
                         attributes.media?.data?.attributes?.url ||
-                          (strapiData.data?.attributes?.initiative?.find((item) => item.uuid === attributes.initiative)?.image?.data?.[0]?.attributes
-                            ?.url as string)
+                          (strapiData.data?.attributes?.initiative?.find(
+                            (item) => item.uuid === attributes.initiative
+                          )?.image?.data?.[0]?.attributes?.url as string)
                       )}
                       width={524}
                       height={300}
