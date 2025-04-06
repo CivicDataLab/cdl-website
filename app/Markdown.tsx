@@ -8,7 +8,7 @@ interface MarkdownContentProps {
 }
 
 export function MarkdownContent({ children }: MarkdownContentProps) {
-  return <Markdown>{children}</Markdown>
+  return <Markdown>{children as string}</Markdown>
 }
 
 export default MarkdownContent
