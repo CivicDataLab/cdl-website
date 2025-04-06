@@ -1,4 +1,3 @@
-// components/AboutContent.tsx
 "use client";
 
 import { getStrapiMediaUrl } from "@/lib/utils";
