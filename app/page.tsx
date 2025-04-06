@@ -59,6 +59,7 @@ export default async function Home() {
                 src={getStrapiMediaUrl(item.icon.data.attributes.url)}
                 alt=""
                 width={150}
+                unoptimized
                 height={150}
                 style={{
                   width: "150px",
