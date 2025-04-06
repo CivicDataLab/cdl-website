@@ -2,15 +2,44 @@
 "use client";
 
 import { getStrapiMediaUrl } from "@/lib/utils";
-import { Attributes } from "@/types/about";
 import Image from "next/image";
 import Markdown from "react-markdown";
+import { getStrapiCollectionData } from "@/lib/utils";
+import { Attributes } from "@/types/about";
+import { useEffect, useState } from "react";
 
 type Props = {
-  attributes: Attributes;
+  slug: any;
 };
 
-export default function AboutSlugContent({ attributes }: Props) {
+export default function AboutSlugContent({ slug }: Props) {
+  const [attributes, setAttributes] = useState<Attributes | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const strapiData = await getStrapiCollectionData({
+          url: "/teams",
+          slug: slug,
+          queries: ["profile", "hi_res"],
+        });
+
+        const data = strapiData.data[0];
+        setAttributes(data.attributes);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [slug]);
+
+  if (loading || !attributes) {
+    return <div>Loading...</div>;
+  }
   return (
     <main className="my-10 container sm:flex gap-6">
       <div className="flex sm:flex-col gap-4 items-center">

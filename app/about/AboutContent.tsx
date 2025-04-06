@@ -1,19 +1,63 @@
 // components/AboutContent.tsx
 "use client";
 
-import React from "react";
+import { getStrapiData, getStrapiMediaUrl } from "@/lib/utils";
+import { About, Team } from "@/types/about";
 import Image from "next/image";
-import { getStrapiMediaUrl } from "@/lib/utils";
-import Markdown from "react-markdown";
-import { About } from "@/types/about";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import Markdown from "react-markdown";
 
 type Props = {
   data: About["data"]["attributes"];
   nameSortedTeamData: any;
 };
 
-export default function AboutContent({ data, nameSortedTeamData }: Props) {
+const queries = [
+  "heading_items.icon",
+  "heading_link",
+  "process_media",
+  "vision_link",
+  "values_items",
+  "pillar_media",
+  "team_items.image",
+];
+
+const queriesTeam = ["profile", "hi_res"];
+export default function AboutContent() {
+  const [data, setData] = useState<About["data"]["attributes"] | null>(null);
+  const [teamData, setTeamData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const nameSortedTeamData = teamData.sort((a, b) => {
+    return a.attributes.name.localeCompare(b.attributes.name);
+  });
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const strapiData: About = await getStrapiData(`/about`, queries);
+        const strapiTeamData: Team = await getStrapiData(`/teams`, queriesTeam);
+
+        const aboutData = strapiData.data.attributes;
+        const teamMembers = strapiTeamData.data;
+        const sortedTeamData = teamMembers.sort((a, b) => {
+          return a.attributes.name.localeCompare(b.attributes.name);
+        });
+
+        setData(aboutData);
+        setTeamData(sortedTeamData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (loading || !data) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <>
