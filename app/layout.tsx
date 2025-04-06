@@ -22,10 +22,6 @@ export const metadata: Metadata = {
   title: "CivicDataLab",
   description:
     "CivicDataLab is a research and innovation lab that focuses on data, design, and technology for public good.",
-  robots: {
-    index: process.env.NODE_ENV === "production",
-    follow: process.env.NODE_ENV === "production",
-  },
 };
 
 export default function RootLayout({
