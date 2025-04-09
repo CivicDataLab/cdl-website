@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   title: "CivicDataLab",
   description:
     "CivicDataLab is a research and innovation lab that focuses on data, design, and technology for public good.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
